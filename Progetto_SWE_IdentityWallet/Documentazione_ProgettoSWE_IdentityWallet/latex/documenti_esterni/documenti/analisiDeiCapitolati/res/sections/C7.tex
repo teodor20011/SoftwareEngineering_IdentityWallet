@@ -1,0 +1,44 @@
+\section*{C7 - Trustify}
+\begin{itemize}
+    \item \textbf{Proponente}: Sybclab
+    \item \textbf{Obiettivo}: Realizzare un sistema che garantisca l’autenticità delle recensioni online, utilizzando blockchain e smart contract
+\end{itemize}
+
+\subsection*{Descrizione}
+Nel contesto delle recensioni online esiste attualmente un problema di autenticità. Nello
+specifico, recensioni presenti sul sito di un’attività non sono verificabili e sono facilmente
+falsificabili e/o manipolabili dall’attività stessa. In simil modo recensioni presenti su siti
+di terze parti (quali per esempio Trustpilot), creati appositamente per combattere questo
+fenomeno, possono essere facilmente falsificate e rilasciate in massa non essendo legate a
+nessun acquisto realmente avvenuto (creando il fenomeno del review bombing).
+
+\subsection*{Obiettivo}
+La soluzione proposta da Sync Lab si basa sull’utilizzo di smart contract, per loro natura
+immutabili e pubblicamente verificabili, per fornire un servizio di pagamento che includa
+la possibilità di rilasciare una recensione.
+Per raggiungere l’obiettivo bisogna creare un contratto digitale che gestirà la logica dei
+pagamenti e delle recensioni e da una webapp che consentirà l’interazione con esso tramite
+il wallet Metamask. Dovrà essere prodotto inoltre un servizio API REST che consenta
+il reperimento delle recensioni da parte degli e-commerce intenzionati ad usufruire del
+servizio.
+
+\subsection*{Tecnologie richieste}
+Il capitolato non prevede vincoli stretti sulle tecnologie da utilizzare, ma consiglia caldamente di prendere in considerazione le seguenti:
+\begin{itemize}
+    \item Blockchain Ethereum-compatibile, con linguaggio Solidity per la scrittura dello smart contract;
+    \item Java Spring per lo sviluppo del servizio API REST;
+    \item Angular per lo sviluppo della Webapp;
+    \item Librerie web3js (webapp) e web3j (server) per interazione con lo smart contract;
+    \item Fornitore terzo per RPC a nodo (es. Infura, Moralis, Alchemy. . . );
+    \item Metamask come wallet per la firma delle transazioni degli utenti.
+\end{itemize}
+
+\subsection*{Note positive}
+\begin{itemize}
+    \item Gli obiettivi sono stati stabiliti in modo chiaro e preciso
+\end{itemize}
+\subsection*{Criticità}
+\begin{itemize}
+    \item Difficoltà nel giustificare la spesa per un servizio di recensioni
+    \item Poco interesse dai membri del gruppo verso smart contract e blockchain
+\end{itemize}

@@ -1,0 +1,82 @@
+\section{European Digital Identity Wallet Ecosystem}
+\includegraphics[width=\textwidth]{res/images/EcosistemaEUDI.jpg}
+\subsection{Users of EUDI Wallet}
+Gli utenti utilizzano il wallet\glo{} EUDI per ricevere, archiviare e presentare attestati (PID, QEAA o EAA) su se stessi, anche per dimostrare la propria identità.
+Gli utenti possono creare Qualified Electronic Signatures and Seals (QES) utilizzando un wallet EUDI.
+Chi può essere un utente di un wallet EUDI dipende dalla legislazione nazionale.
+\subsection{EUDI Wallet Provider}
+I fornitori di portafogli EUDI sono Stati membri od organizzazioni incaricate o riconosciute dagli Stati membri che mettono a disposizione il portafoglio EUDI per gli utenti finali.
+\subsection{Person Identification Data (PID) Providers}
+I fornitori di PID sono entità fidate responsabili di:
+\begin{itemize}
+    \item Verificare l'identità dell'utente del wallet EUDI;
+    \item Rilasciare PID al portafoglio EUDI in un formato comune;
+    \item Mettere a disposizione delle Relying Party informazioni per verificare la validità del PID.
+\end{itemize}
+I fornitori di PID possono ad esempio essere le stesse organizzazioni che oggi rilasciano documenti di identità ufficiali, mezzi di identità elettronica, fornitori di Wallet EUDI ecc.. I fornitori di wallet EUDI possono o meno essere le stesse organizzazioni dei fornitori di PID.
+\subsection{Trusted List Providers}
+Elenco degli enti attendibili che deve fornire un servizio di registrazione per le entità pertinenti, mantenere un registro e consentire l'accesso di terze parti alle informazioni del registro.
+La lista può includere i seguenti fornitori:
+\begin{itemize}
+    \item Fornitori di Wallet EUDI;
+    \item Fornitori di PID;
+    \item Fornitori di (QEAA);
+    \item Fornitori di (QC);
+    \item Fornitori di (EAA).
+\end{itemize}
+\subsection{Qualified Electronic Attestation of Attributes Providers}
+I fornitori QEAA mantengono un'interfaccia per richiedere e fornire QEAA, inclusa un'interfaccia di autenticazione reciproca con i Wallet EUDI e potenzialmente un'interfaccia verso le fonti autentiche per verificare gli attributi.
+\subsection{Relying Parties}
+Le Relaying Parties sono persone fisiche o giuridiche che fanno affidamento su un'identificazione elettronica o su un Trusted Service.
+Nel contesto dei Wallet EUDI, richiedono agli utenti del wallet EUDI gli attributi necessari contenuti nel set di dati PID, QEAA ed EAA per fare affidamento sul portafoglio EUDI, previa accettazione da parte del proprietario del portafoglio (Utente) ed entro i limiti della legislazione e le norme applicabili.
+\subsection{PID Attributes per Persone Fisiche}
+\begin{longtable}{|c|c|c|}
+    \hline
+    \textbf{Mandatory eIDAS Attributes} & \textbf{Optional eIDAS Attributes} & \textbf{Optional attributes} \\
+    \hline
+    \endfirsthead
+    
+    \multicolumn{3}{c}%
+    {\tablename\ \thetable\ --\ Continuazione dalla pagina precedente} \\
+    \hline
+    \textbf{Mandatory eIDAS Attributes} & \textbf{Optional eIDAS Attributes} & \textbf{Optional attributes} \\
+    \hline
+    \endhead
+    
+    \hline \multicolumn{3}{r}{{Continua nella pagina successiva}} \\
+    \endfoot
+    
+    \hline
+    \endlastfoot
+    
+    Current Family Name	 & Family Name at Birth & Nationality/Citizenship \\
+    Current First Names & First Names at Birth &  \\
+    Date of Birth & Place of Birth & Optional attributes used at national level \\
+    Unique Identifier & Current Address & \\
+     & Gender & \\    
+    \end{longtable}
+    L'attestazione PID deve contenere le seguenti informazioni:
+    \begin{itemize}
+        \item informazioni necessarie per identificare il PID Provider;
+        \item informazioni necessarie per eseguire un controllo di integrità e autenticità dei dati;
+        \item informazioni necessarie per eseguire i controlli dello stato di validità dell'attestato;
+        \item Deve rispettare il ISO/IEC 18013-5:2021 e il W3C Verifiable Credentials Data Model 1.1. e codificato in JSON.
+    \end{itemize}
+    Stesse informazioni devono essere garantite per i (Q)EAA.
+    Tipi di funzionamento del EUDI Wallet:
+    \begin{itemize}
+        \item Locale. Può funzionare in maniera supervisionata o non supervisionata tramite un contatto fisico (QRCode, NFC) e questo funzionamento può accadere anche senza connessione a internet.\\
+        Per protocollo di comunicazione si dovranno seguire quelli dettagliati nel
+        ISO/IEC 18013-5:2021;
+        \item Remote. Può funzionare over the internet, con sistemi in cui il wallet è utilizzato per garantire sessioni di autenticazione e dove i certificati possono essere utilizzati e consumati dallo stesso sito che li richiede.
+        \\Per questo funzionamento come protocollo di comunicazione si dovrà utilizzare OpenID4VP, in particolare questo è un Attestation exchange protocol.
+        \\Per l'Issuer che forniscono certificati al Wallet si dovranno utilizzare il protocollo OpenID4VCI.
+    \end{itemize}
+
+    Possono essere scenari di utilizzo:
+    \begin{itemize}
+        \item User e Relying Party sono entrambi online;
+        \item Solo User è online;
+        \item Solo Relying Party è online;
+        \item User e Relying Party sono entrambi offline.
+    \end{itemize}

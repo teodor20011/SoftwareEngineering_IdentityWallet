@@ -1,0 +1,53 @@
+name: Copy Files on Push
+
+on:
+  push:
+    branches: [main] #specificare qui la branch sulla quale effettuare il push
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Copy Files
+        uses: actions/checkout@v2
+
+      - name: Copying files Documenti Interni Documenti
+        run: find latex/documenti_interni/documenti/ -name "*.pdf" -exec cp {} documenti_interni/documenti/ \;
+      - name: Copying files Documenti Esterni Documenti
+        run: find latex/documenti_esterni/documenti/ -name "*.pdf" -exec cp {} documenti_esterni/documenti/ \;
+      - name: Copying files Documenti Interni Verbali
+        run: find latex/documenti_interni/verbali/ -name "*.pdf" -exec cp {} documenti_interni/verbali/ \;
+      - name: Copying files Documenti Esterni Verbali
+        run: find latex/documenti_esterni/verbali/ -name "*.pdf" -exec cp {} documenti_esterni/verbali/ \;
+      
+      - name: Moving analisiDeiCapitolati.pdf nella sottocartella candidatura
+        run: "[ -f  'documenti_esterni/documenti/analisiDeiCapitolati.pdf' ] && mv 'documenti_esterni/documenti/analisiDeiCapitolati.pdf' documenti_esterni/documenti/candidatura/;"
+      - name: Moving dichiarazioneImpegni.pdf nella sottocartella candidatura
+        run: "[ -f 'documenti_esterni/documenti/dichiarazioneImpegni.pdf' ] && mv 'documenti_esterni/documenti/dichiarazioneImpegni.pdf' documenti_esterni/documenti/candidatura/;" 
+      - name: Moving letteraCandidatura.pdf nella sottocartella candidatura
+        run: "[ -f 'documenti_esterni/documenti/letteraCandidatura.pdf' ] && mv 'documenti_esterni/documenti/letteraCandidatura.pdf' documenti_esterni/documenti/candidatura/;"
+      
+      - name: Moving valutazioneEuropeaEID.pdf nella sottocartella documenti_tecnici
+        run: "[ -f 'documenti_interni/documenti/valutazioneEuropeaEID.pdf' ] && mv 'documenti_interni/documenti/valutazioneEuropeaEID.pdf' documenti_interni/documenti/documenti_tecnici/;"
+      - name: Moving ricercaRequisitiSPID.pdf nella sottocartella documenti_tecnici
+        run: "[ -f 'documenti_interni/documenti/ricercaRequisitiSPID.pdf' ] && mv 'documenti_interni/documenti/ricercaRequisitiSPID.pdf' documenti_interni/documenti/documenti_tecnici/;"
+      - name: Moving architetturaEUDI.pdf nella sottocartella documenti_tecnici
+        run: "[ -f 'documenti_interni/documenti/architetturaEUDI.pdf' ] && mv 'documenti_interni/documenti/architetturaEUDI.pdf' documenti_interni/documenti/documenti_tecnici/;"
+      - name: Moving ricercaOpenID.pdf nella sottocartella documenti_tecnici
+        run: "[ -f 'documenti_interni/documenti/ricercaOpenID.pdf' ] && mv 'documenti_interni/documenti/ricercaOpenID.pdf' documenti_interni/documenti/documenti_tecnici/;"
+      - name: Moving W3CDataModel.pdf nella sottocartella documenti_tecnici
+        run: "[ -f 'documenti_interni/documenti/W3CDataModel.pdf' ] && mv 'documenti_interni/documenti/W3CDataModel.pdf' documenti_interni/documenti/documenti_tecnici/;"
+      
+      - name: Commit Files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          git add *.pdf
+          
+          git commit -m "updateOnPush"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main

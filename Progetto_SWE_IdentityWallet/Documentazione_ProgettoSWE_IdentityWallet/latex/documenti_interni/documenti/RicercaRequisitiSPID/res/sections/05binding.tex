@@ -1,0 +1,29 @@
+\section{Binding}
+\subsection{Breve descrizione}
+Il termine "Binding" si riferisce al momento in cui l'User Agent viene reindirizzato da un portale all'altro durante l'autenticazione. 
+In particolare, questo avviene quando il Service Provider reindirizza l'utente all'Identity Provider e, una volta che l'Identity 
+Provider ha verificato l'identità dell'utente, lo reindirizza nuovamente al Service Provider per completare il processo\glo\ di 
+autenticazione.
+\subsection{Binding HTTP Redirect}
+Il Service Provider invia allo User Agent un messaggio HTTP di redirezione, cioè avente uno Status Code con
+valore 302 (“Found”) o 303 (“See Other”);
+\\ Il Location Header del messaggio HTTP contiene l’URI\glo\ di destinazione del servizio di Single
+Sign-On esposto dall’ Identity Provider.
+\\ Il Pacchetto HTTP trasporta i parametri tutti URL-encoded codificato in formato
+Base64 e compresso con algoritmo DEFLATE\glo.
+\\ Il messaggio all'interno è la risorsa richiesta originaria a cui 
+trasferire il controllo una volta terminata l'autenticazione, 
+algoritmo e firma per la codifica delle informazioni.
+\\ Una volta avute queste informazioni il User Agent fa una 
+richiesta GET all' Identity Provider con tutte le informazioni 
+sopracitate sotto forma di URLENCODED\glo.
+
+\subsection{Binding HTTP POST}
+Il Service Provider invia allo User Agent un messaggio HTTP con uno Status code\glo\ avente valore 200 (“OK”). 
+Questo messaggio HTTP contiene un form HTML codificato come valore di un elemento nascosto del form. 
+L'utilizzo di questa metodologia consente di superare i limiti di dimensione della query string. \\
+L’intero messaggio SAML in formato XML può essere firmato tramite la XML Digital Signature\glo\ e il risultato viene codificato 
+in formato Base64. La risorsa richiesta originariamente è inclusa nel messaggio e viene utilizzata per trasferire il controllo 
+a termine dell'autenticazione.\\
+Infine, il browser dell’utente elabora la risposta HTTP e invia una richiesta HTTP POST verso il componente Single Sign-On 
+dell’Identity Provider.

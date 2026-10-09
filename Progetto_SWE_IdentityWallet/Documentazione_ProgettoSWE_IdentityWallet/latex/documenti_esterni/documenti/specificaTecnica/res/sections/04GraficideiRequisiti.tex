@@ -1,0 +1,72 @@
+\section{Elenco dei requisiti}
+\subsubsection*{Requisiti funzionali soddisfatti} %al posto di subsubsection si possono mettere dei textbf centrati, come le tabelle
+    \begin{longtable}{|p{0.08\textwidth}|p{0.6\textwidth}|p{0.13\textwidth}|p{0.1\textwidth}|}
+        %requisiti funzionali
+        \hline
+        \textbf{Codice} & \textbf{Descrizione} & \textbf{Riferimento} & \textbf{Stato}\\
+        \hline
+        RF01-O & L'utente inserisce le credenziali nel portale del wallet per iscriversi & UC1 & soddisfatto\\
+        RF02-O & L'utente visualizza un messaggio di errore per dati immessi non corretti, non risulta registrato al wallet & UC4& soddisfatto\\
+        RF03-O & L'utente può accedere al portale wallet attraverso le credenziali di accesso & UC2& soddisfatto\\
+        RF04-O & L'utente visualizza un messaggio di errore per credenziali sbagliate al login & UC4& soddisfatto\\ 
+        RF05-O & L'utente può eseguire il logout dal portale wallet & UC3& soddisfatto\\
+        RF06-O & L'utente inserisce le credenziali nel portale Issuer sistema per poter iscriversi & UC5& soddisfatto\\
+        RF07-O & L'utente visualizza un messaggio di errore durante la registrazione nel portale Issuer sistema per dati immessi non corretti. & UC8& soddisfatto\\
+        RF08-O & L'utente visualizza un messaggio di errore durante il login nel portale Issuer sistema per dati immessi non corretti. & UC8& soddisfatto\\
+        RF09-O & L'utente può accedere attraverso le credenziali al portale dell'Issuer sistema & UC6& soddisfatto\\
+        RF10-O & L'utente può eseguire il logout dal portale dell'Issuer sistema & UC7& soddisfatto\\
+        RF11-O & L'utente richiede una credenziale PID identificativa nella portale dell'Issuer sistema & UC10& soddisfatto\\
+        RF12-O & L'utente richiede una credenziale EAA nel portale dell'Issuer sistema & UC11& soddisfatto\\
+        RF13-O & L'issuer admin effettua il login con le proprie credenziali speciali al portale Issuer sistema & UC6& soddisfatto\\ 
+        RF14-O & L'issuer admin accede alla propria dashboard amministrativa & UC6& soddisfatto\\
+        RF15-O & L'issuer admin esamina le richiesta di credenziale nel portale issuer sistema  & UC15& soddisfatto\\
+        RF16-O & L'issuer admin approva o rifiuta la richiesta di credenziale credenziale portale issuer sistema & UC15& soddisfatto\\
+        RF17-O & Se la richiesta di credenziale  è approvata, l'issuer sistema genera credenziale richiesta & UC15& soddisfatto\\
+        RF18-O & L'holder può verificare nel portale Issuer sistema lo stato della richiesta credenziale & UC12& soddisfatto\\ 
+        RF19-O & Data una richiesta approvata e una credenziale generata l'utente può ottenere nel proprio wallet tale credenziale dal portale issuer sistema & UC14 & soddisfatto\\
+        RF20-O & L'utente ottiene correttamente la credenziale nel propio wallet & UC14& soddisfatto\\
+        RF21-O & L'utente visualizza un errore sul wallet che notifica l'errore di rilascio della credenziale & UC13& soddisfatto\\
+        RF22-O & L'utente visualizza una lista di credenziali memorizzate all'interno del proprio wallet& UC16& soddisfatto\\
+        RF23-O & L'utente all'interno della propria portale wallet visualizza dettagliatamente la credenziale identificativa PID & UC18& soddisfatto\\
+        RF24-O & L'utente all'interno della propria portale wallet visualizza dettagliatamente la credenziale identificativa EAA & UC19& soddisfatto\\
+        RF25-O & L'utente elimina le credenziali memorizzate nel wallet & UC20& soddisfatto\\
+        RF26-O & Il verifier richiede all'utente una credenziale presente sul wallet personale da verificare & UC21& soddisfatto\\
+        RF27-O & L'utente fornisce tramite il proprio wallet una credenziale al verifier da verificare & UC22& soddisfatto\\
+        RF28-O & L'utente riesce a visualizzare un messaggio di errore nella piattaforma verifier che notifica l'errore di verifica & UC23& soddisfatto\\
+        \hline
+    \end{longtable}
+
+Numero di requisiti funzionali obbligatori soddisfatti: 28/28.    
+
+
+\subsection{Qualità}
+\subsubsection*{Requisiti di qualità}
+\begin{longtable}{|c|p{0.8\textwidth}|c|}
+    \hline
+    \textbf{Codice} & \textbf{Descrizione} & \textbf{Stato} \\
+    \hline
+    RQ01-O & Le webapp devono essere sviluppate secondo le regole imposte e descritte nel documento \NdPdocumento & soddisfatto \\
+    RQ02-O & Devono essere prodotti e sviluppati dei test sulle funzionalità dei servizi, che assicurano almeno l'80\% di copertura del codice prodotto & soddisfatto \\
+    RQ03-O & Deve essere redatto un documento con gli eventuali problemi sorti e le possibili soluzioni per risolverli & soddisfatto \\
+    RQ04-O & Deve essere prodotto un documentato con tutte le scelte progettuali e implementative& soddisfatto  \\ 
+    \hline
+\end{longtable}
+
+Numero di requisiti qualitativi obbligatori soddisfatti: 4/4.
+\newpage
+\subsection{Copertura test}
+\subsubsection{Test di Unità}
+
+\begin{itemize}
+    \item Branch Coverage: 81\%
+    \item Statement Coverage: 83\%
+    \item Function Coverage: 88\%
+    \item Line Coverage: 85\%
+\end{itemize}
+\subsubsection*{Test di Integrazione}
+\begin{itemize}
+    \item Branch Coverage: 91\%
+    \item Statement Coverage: 95\%
+    \item Function Coverage: 92\%
+    \item Line Coverage: 96\%
+\end{itemize}

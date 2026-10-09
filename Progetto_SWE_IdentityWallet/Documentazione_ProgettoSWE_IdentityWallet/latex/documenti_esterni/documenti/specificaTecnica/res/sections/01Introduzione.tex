@@ -1,0 +1,43 @@
+\section{Introduzione}
+\subsection{Scopo del documento}
+La Specifica Tecnica si pone come obiettivo di descrivere in modo esaustivo l'organizzazione della struttura del software, delle tecnologie adottate e delle scelte architetturali compiute dal gruppo durante le fasi di progettazione e di codifica del prodotto.\\
+All’interno del documento si possono trovare gli schemi delle classi per delineare l'architettura e le funzionalità chiave del prodotto, con l'obiettivo di fornire una comprensione completa e chiara del sistema e delle interazioni interne.\\
+Il documento contiene anche una sezione per i requisiti che vengono soddisfatti dal prodotto; questo permette al gruppo  di valutare il progresso del lavoro e di tener traccia degli obiettivi imposti.
+
+\subsection{Scopo del prodotto} 
+Lo scopo del prodotto è quello di creare una versione semplificata di un applicativo per implementare e rilasciare un "portafoglio di identità digitale" conforme a un insieme di 
+standard, in modo che possa essere utilizzato con qualsiasi servizio, che adotti tale struttura, in qualsiasi paese dell'UE. \\
+In particolare, si dovrà realizzare una web app\glo{} avendo queste componenti architetturali:
+\begin{itemize}
+    \item Un componente back-office per consentire al dipendente dell'organizzazione emittente di verificare\glo{} manualmente la richiesta di credenziali e autorizzarne l'emissione; 
+    \item Un componente di interazione con l'utente dimostrativo per consentire all'utente (titolare) di navigare e richiedere specifiche credenziali da un emittente 
+(ad esempio, il sito di una demo universitaria); 
+    \item Un componente di interazione con l'utente dimostrativo per consentire all'utente (titolare) di navigare un sito verificatore\glo{} e fornire le credenziali richieste;
+    \item Un'app front-end per l'utente per archiviare e gestire le proprie credenziali; 
+    \item Un componente di comunicazione per consentire lo scambio di credenziali/presentazioni secondo un protocollo standard - il componente di comunicazione sarà implementato 
+tre volte nei tre contesti (lato emittente, lato titolare, lato verificatore).
+\end{itemize}
+
+\subsection{Note Esplicative}
+Alcuni termini utilizzati nel documento possono avere significati ambigui a seconda del contesto. Al fine di evitare equivoci, è stato creato un \Glodocumento contenente tali termini 
+e il loro significato specifico. Per segnalare che un termine è presente nel \Glodocumento, sarà aggiunta una "g" a pedice accanto al termine corrispondente nel testo.
+
+\subsection{Riferimenti}
+\textbf{1. Normativi:} 
+\begin{itemize}
+    \item \textbf{\NdPdocumento}: contengono le norme e gli strumenti per gli analisti;
+    \item \textbf{Capitolato d’appalto C3}: \url{https://www.math.unipd.it/~tullio/IS-1/2022/Progetto/C3.pdf};
+    \item \textbf{Regolamento del progetto didattico:}: \url{https://www.math.unipd.it/~tullio/IS-1/2022/Dispense/PD02.pdf}.
+\end{itemize}
+
+\textbf{2. Informativi:} 
+\begin{itemize}
+    \item \textbf{Analisi dei Requisiti v2.0.0};
+    \item \textbf{Qualità di prodotto – slide T8 di Ingegneria del Software: }: \url{https://www.math.unipd.it/~tullio/IS-1/2022/Dispense/T08.pdf};
+    \item \textbf{Qualità di processo – slide T9 di Ingegneria del Software: }: \url{https://www.math.unipd.it/~tullio/IS-1/2022/Dispense/T09.pdf};
+    \item \textbf{Verifica e Validazione: introduzione – slide T10 di Ingeneria del Software:}: \url{https://www.math.unipd.it/~tullio/IS-1/2022/Dispense/T10.pdf};
+    \item \textbf{Verifica e Validazione: introduzione – slide T11 di Ingeneria del Software:}: \url{https://www.math.unipd.it/~tullio/IS-1/2022/Dispense/T11.pdf};
+    \item \textbf{Verifica e Validazione: introduzione – slide T12 di Ingeneria del Software:}: \url{https://www.math.unipd.it/~tullio/IS-1/2022/Dispense/T12.pdf}.
+
+\end{itemize}
+

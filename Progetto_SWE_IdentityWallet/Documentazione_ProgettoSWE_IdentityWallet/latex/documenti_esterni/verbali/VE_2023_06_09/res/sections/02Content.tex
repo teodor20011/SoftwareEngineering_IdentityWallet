@@ -1,0 +1,42 @@
+\section{Ordine del giorno}
+\begin{enumerate}
+\item Casi d'uso
+\item Database
+\item PoC
+\item Walt.id
+\item Capitolato
+\end{enumerate}
+
+\subsection{Casi d'uso}
+Durante le prime fasi di consultazione con l'azienda, è stata sollevata una domanda riguardante i casi d'uso. È stato suggerito che sarebbe preferibile astrarre i casi d'uso per soddisfare le esigenze specifiche:
+\begin{itemize}
+  \item Wallet conteniment;
+  \item Issuer verifier: rialasciare e ricevere.
+\end{itemize}
+Se generalizziamo adeguatamente i casi d'uso, potremmo creare un'unica web app che integri entrambe le funzionalità.
+L'architettura dell'applicazione deve essere attentamente progettata per gestire correttamente l'interazione tra le diverse componenti e la struttura sottostante.
+È importante verificare che i casi d'uso rientrino all'interno delle specifiche richieste.
+Si potrebbe considerare l'implementazione delle API come una libreria in esecuzione, in modo da fornire un'istanza pronta all'uso che può essere integrata nella web app principale.
+
+
+\subsection{Database}
+Si è discusso del database issuer per tenere traccia delle credenziali da revoca, è stato implementato un database emittente(Issuer) nel nostro sistema. Tuttavia, è importante chiarire che il nostro database 
+serve come mezzo per registrare i login degli utenti, non come database per gestire specificatamente le credenziali da revoca. 
+Per quanto riguarda la verifica e gestione delle credenziali da revocare, facciamo affidamento su un sistema di login fornito da "walt.id".
+Tuttavia, è importante notare la revoca non è necessaria. Per quanto riguarda le preapproviazioni necessarie per l'approvazione delle credenziali, abbiamo implementato una procedura di login esplicito sul sito dell'emittente (issuer) per gestirle in modo adeguato.
+
+\subsection{PoC}
+L'obiettivo che ci siamo posti è molto più avanzato rispetto a un semplice Proof of Concept (PoC); potremmo definirlo come una sorta di mockup. Il nostro scopo è mostrare ampie porzioni di funzionalità, suddividendole in due categorie distintive per una comunicazione chiara:
+\begin{itemize}
+  \item Aspetto funzionale: Questo aspetto metterà in mostra le interfacce utente, evidenziando le funzionalità e le operazioni disponibili per gli utenti. Attraverso una rappresentazione visiva, dimostreremo l'aspetto intuitivo e l'interazione fluida del sistema.
+  \item Aspetto tecnologico: In questo ambito, ci concentreremo sulle funzionalità che sono state effettivamente implementate e che sono funzionanti. Mostreremo il flusso di comunicazione tra i vari componenti del sistema, evidenziando l'integrazione tra i moduli e dimostrando la capacità del sistema di eseguire le operazioni richieste.
+\end{itemize}
+Sarà di fondamentale importanza comunicare in modo chiaro e conciso, garantendo che le informazioni trasmesse siano comprensibili e che le dimostrazioni siano efficaci per illustrare le caratteristiche e il funzionamento del sistema.
+
+\subsection{Wald.id}
+Attualmente non siamo sicuri se la versione di "walt.id" che stiamo utilizzando sia allineata all'ultima libreria disponibile a febbraio. Tuttavia, ci stiamo focalizzando sull'automazione dell'emissione delle credenziali e ci affidiamo a "walt.id" per questa funzionalità. La responsabilità di mantenere e aggiornare la libreria spetta al suo sviluppatore, mentre noi ci concentriamo sull'utilizzo delle funzionalità di pre-autorizzazione disponibili.
+
+\subsection{Capitolato}
+Il capitolato richiede una verifica delle richieste, e il prodotto finale soddisferà tale requisito. Tuttavia, nel Proof of Concept (PoC) iniziale, questa funzionalità non sarà presente.
+La logica del riutilizzo del PoC è sicuramente una scelta appropriata. Consigliato di identificare inizialmente una serie di componenti e poi cercare implementazioni singole di tali funzionalità, che successivamente verranno assemblate per creare il prodotto finale.
+L'approccio consigliato consiste nel cercare le funzionalità richieste, identificare esempi specifici di implementazione per ognuna di esse e fermarsi a quel punto. È fondamentale stabilire obiettivi chiari e adottare un taglio deciso nell'implementazione, riducendo al minimo le componenti superflue.

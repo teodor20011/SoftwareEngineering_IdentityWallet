@@ -1,0 +1,80 @@
+\section{Requisiti}
+\subsection{Introduzione}
+In questa sezione sono elencati i casi d'uso rilevanti per la realizzazione del prodotto Personal Identity Wallet.
+\subsection{Elenco dei requisiti}
+\subsubsection*{Requisiti funzionali} %al posto di subsubsection si possono mettere dei textbf centrati, come le tabelle
+    \begin{longtable}{|p{0.08\textwidth}|p{0.7\textwidth}|p{0.13\textwidth}|}
+        %requisiti funzionali
+        \hline
+        \textbf{Codice} & \textbf{Descrizione} & \textbf{Riferimento} \\
+        \hline
+        RF01-O & L'utente inserisce le credenziali nel portale del wallet per iscriversi & UC1\\
+        RF02-O & L'utente visualizza un messaggio di errore per dati immessi non corretti, non risulta registrato al wallet & UC4\\
+        RF03-O & L'utente può accedere al portale wallet attraverso le credenziali di accesso & UC2\\
+        RF04-O & L'utente visualizza un messaggio di errore per credenziali sbagliate al login & UC4\\ 
+        RF05-O & L'utente può eseguire il logout dal portale wallet & UC3\\
+        RF06-O & L'utente inserisce le credenziali nel portale Issuer sistema per poter iscriversi & UC5\\
+        RF07-O & L'utente visualizza un messaggio di errore durante la registrazione nel portale Issuer sistema per dati immessi non corretti. & UC8\\
+        RF08-O & L'utente visualizza un messaggio di errore durante il login nel portale Issuer sistema per dati immessi non corretti. & UC8\\
+        RF09-O & L'utente può accedere attraverso le credenziali al portale dell'Issuer sistema & UC6\\
+        RF10-O & L'utente può eseguire il logout dal portale dell'Issuer sistema & UC7\\
+        RF11-O & L'utente richiede una credenziale PID identificativa nella portale dell'Issuer sistema & UC10\\
+        RF12-O & L'utente richiede una credenziale EAA nel portale dell'Issuer sistema & UC11\\
+        RF13-O & L'issuer admin effettua il lgin con le proprie credenziali speciali al portale Issuer sistema & UC6\\ 
+        RF14-O & L'issuer admin accede alla propria dashboard amministrativa & UC6\\
+        RF15-O & L'issuer admin esamina le richiesta di credenziale nel portale issuer sistema  & UC15\\
+        RF16-O & L'issuer admin approva o rifiuta la richiesta di credenziale credenziale portale issuer sistema & UC15\\
+        RF17-O & Se la richiesta di credenziale  è approvata, l'issuer sistema genera credenziale richiesta & UC15\\
+        RF18-O & L'holder può verificare nel portale Issuer sistema lo stato della richiesta credenziale & UC12\\ 
+        RF19-O & Data una richiesta approvata e una credenziale generata l'utente può ottenere nel proprio wallet tale credenziale dal portale issuer sistema & UC14 \\
+        RF20-O & L'utente ottiene correttamente la credenziale nel propio wallet & UC14\\
+        RF21-O & L'utente visualizza un errore sul wallet che notifica l'errore di rilascio della credenziale & UC13\\
+        RF22-O & L'utente visualizza una lista di credenziali memorizzate all'interno del proprio wallet& UC16\\
+        RF23-O & L'utente all'interno della propria portale wallet visualizza dettagliatamente la credenziale identificativa PID & UC18\\
+        RF24-O & L'utente all'interno della propria portale wallet visualizza dettagliatamente la credenziale identificativa EAA & UC19\\
+        RF25-O & L'utente elimina le credenziali memorizzate nel wallet & UC20\\
+        RF26-O & Il verifier richiede all'utente una credenziale presente sul wallet personale da verificare & UC21\\
+        RF27-O & L'utente fornisce tramite il proprio wallet una credenziale al verifier da verificare & UC22\\
+        RF28-O & L'utente riesce a visualizzare un messaggio di errore nella piattaforma verifier che notifica l'errore di verifica & UC23\\
+        \hline
+    \end{longtable}
+
+\subsubsection*{Requisiti non funzionali}
+    \begin{longtable}{|c|c|}
+        \hline
+        \textbf{Codice} & \textbf{Descrizione} \\
+        \hline
+        %requisiti non funzionali
+        RN01-O & Le credenziali devono rispettare il formato JSON W3C\\
+        RN02-O & Le credenziali devono essere scambiate con il protocollo OpenID4VC tra issuer e holder\\
+        RN03-O & Le credenziali devono essere scambiate con il protocollo OpenID4VP tra holder e verifier\\
+        %requisito sull'usabilità?
+        RN04-O & Le credenziali possono essere consumate solo dall'effettivo holder\\
+        RN05-O & Le credenziali non possono essere modificate\\
+        RN06-O & Le credenziali non possono essere intercettate\\
+        \hline
+    \end{longtable}
+
+    \subsubsection*{Requisiti di qualità}
+    \begin{longtable}{|c|p{0.8\textwidth}|}
+        \hline
+        \textbf{Codice} & \textbf{Descrizione} \\
+        \hline
+        RQ01-O & Le webapp devono essere sviluppate secondo le regole imposte e descritte nel documento \NdPdocumento\\
+        RQ02-O & Devono essere prodotti e sviluppati dei test sulle funzionalità dei servizi, che assicurano almeno l'80\% di copertura del codice prodotto \\
+        RQ03-O & Deve essere redato un documento con gon gli eventuali problemi sorti e le possibili soluzioni per risolverli. \\
+        RQ04-O & Deve essere prodotto un docuemtno con tutte le scelte progettuali e implementative \\ 
+        \hline
+    \end{longtable}
+
+    \subsubsection*{Requisiti di vincolo}
+    \begin{longtable}{|c|c|}
+        \hline
+        \textbf{Codice} & \textbf{Descrizione} \\
+
+        \hline
+        RV01-O & Essere in possesso delle credenziali di autenticazione per accedere al Waller\\
+        RV02-O & Essere in possesso delle credenziali di autenticazione per accedere al Issuer App \\
+        \hline
+    \end{longtable}
+

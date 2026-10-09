@@ -1,0 +1,43 @@
+\documentclass[a4paper]{article}
+\usepackage[normalem]{ulem}
+\usepackage{eurosym}
+\usepackage[font=small,labelfont=bf]{caption}
+
+% impostazioni generali
+\input{../../../template/package.tex}
+
+% dati della prima pagina
+\input{config/titlePageInput.tex} % per modificare la prima pagina editare questo file
+
+\makeindex
+
+\makeatletter
+\renewcommand\paragraph{
+\@startsection {paragraph}{4}{0mm}{-\baselineskip}{.5\baselineskip}{\normalfont \normalsize \bfseries }}
+\makeatother
+
+\begin{document}
+
+% Prima pagina
+\input{../../../template/titlePage.tex}
+
+
+% Diario delle modifiche 
+\input{../../../template/changelog.tex}
+\input{config/changelogInput.tex} % editare questo
+\pagebreak
+
+% Indice
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+    %\listoffigures %elenco figure
+    %\listoftables  %elenco tabelle
+}
+\pagebreak
+
+% sezioni comuni 
+\input{res/sections/01Introduzione.tex}
+\input{res/sections/02preventivoCosto.tex}
+
+\end{document}

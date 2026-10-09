@@ -1,0 +1,12 @@
+\section{Invio del Responso}
+\subsection{Breve descrizione}
+Per Response si intende la risposta che l'Identiry Provider invia al Service Provider con 
+l'esito dell'autentificazione e con le informazioni richieste dal Service Provider appartenente all'utente.
+\subsection{Response}
+Dopo che l'utente ha completato l'autenticazione, l'Identity Provider crea una Response che contiene la firma digitale e la invia 
+direttamente al Service Provider.
+\\ La Response viene inclusa in un form HTML come campo nascosto denominato "SAMLResponse\glo\". 
+\\ L’Identity Provider invia il form HTML al browser dell’utente tramite una risposta
+HTTP.
+\\ Il browser dell’utente elabora quindi la risposta HTTP e invia una richiesta HTTP POST
+contenente la Response firmata verso il Service Provider.

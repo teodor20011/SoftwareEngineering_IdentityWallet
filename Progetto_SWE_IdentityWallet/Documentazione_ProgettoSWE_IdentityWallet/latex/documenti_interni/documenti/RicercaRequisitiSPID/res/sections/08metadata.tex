@@ -1,0 +1,29 @@
+\section{Metadata}
+\subsection{Scopo}
+Ciascuna entità fornisce dei metadati per dichiarare in modo trasparente le proprie caratteristiche, nonché i servizi e le 
+informazioni offerti o richiesti.
+\subsection{Identity Provider METADATA}
+I metadata sono conformi allo standard SAMLv2.0:
+\begin{itemize}
+    \item \textbf{entityID}: indica l’identificativo (URI\glo) dell’entità univoca in ambito SPID.
+    \item \textbf{Protocollo}: identificatore dei protocolli supportati dall'entità.
+    \item \textbf{SingleSignOnService}: endpoint URL del servizio per ricevere le richieste e tipo di binding da utilizzare con il Service Provider (HTTP-Redirect oppure HTTP-POST).
+    \item \textbf{Organizzazione}: Organizzazione a cui afferisce l'Identity Provider.
+    \item \textbf{Signature}: firma proprietaria.
+    \item \textbf{Attributi}: uno o più elementi "attribute" ad indicare nome e formato degli attributi certificabili dell’Identity Provider.
+    Molto importante, poiché potremmo utilizzare anche noi un sistema simile.
+\end{itemize}
+I metadata Identity Provider saranno disponibili per tutte le entità SPID federate attraverso
+l’interfaccia IMetadataRetrive all'URL "dominioGestoreIdentita/metadata".
+
+\subsection{Service Provider METADATA}
+
+\begin{itemize}
+    \item \textbf{IMetadataRetrieve}: permette il reperimento dei SAML metadata del Service Provider da parte dell’Identity Provider.
+    \item \textbf{IdentityID}: ID indicante l’identificativo univoco (un URI\glo) dell’entità.
+    \item \textbf{Chiave}: chiave pubblica dell'entità per Signature.
+    \item \textbf{Signature}: firma proprietaria.
+    \item \textbf{AssertionConsumerService}: si riferisce al modo in cui il Service Provider deve essere contattato per ricevere la Response, specificando il tipo di binding e l'URI\glo\ di destinazione.
+    \item \textbf{Organizzazione}: organizzazione a cui fa riferimento il Service Provider.
+    \item \textbf{Attributi}: sono una lista di informazioni che il Service Provider richiede all'Identity Provider di fornire ad esempio nome, cognome, data di nascita e indirizzo. La lista degli attributi richiesti può variare a seconda del service name desiderato, e possono essere molteplici.
+\end{itemize}

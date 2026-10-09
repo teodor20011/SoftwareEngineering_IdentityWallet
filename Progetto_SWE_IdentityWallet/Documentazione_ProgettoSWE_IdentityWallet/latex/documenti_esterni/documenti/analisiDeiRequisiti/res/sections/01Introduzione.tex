@@ -1,0 +1,46 @@
+\section{Introduzione}
+
+\subsection{Scopo del documento}
+Il documento si prefigge di esporre e analizzare tutti i requisiti espliciti e impliciti per la realizzazione del progetto Personal Identity Wallet\glo, proposto dall'azienda Infocert. 
+Il documento costituirà una base di partenza fondamentale per la fase di progettazione del software, in modo da garantire che essa sia conforme alle richieste fatte dall'azienda 
+proponente Infocert.
+
+
+\subsection{Scopo del prodotto}
+Lo scopo del prodotto è quello di creare una versione semplificata di un applicativo per implementare e rilasciare un "portafoglio di identità digitale" conforme a un insieme di 
+standard, in modo che possa essere utilizzato con qualsiasi servizio conforme in qualsiasi paese dell'UE. \\
+In particolare, si dovrà realizzare una web app\glo{} avendo queste componenti architetturali:
+\begin{itemize}
+    \item Un componente back-office per consentire al dipendente dell'organizzazione emittente di verificare\glo{} manualmente la richiesta di credenziali e autorizzarne l'emissione; 
+    \item Un componente di interazione con l'utente dimostrativo per consentire all'utente (titolare) di navigare e richiedere specifiche credenziali da un emittente 
+(ad esempio, il sito di una demo universitaria); 
+    \item Un componente di interazione con l'utente dimostrativo per consentire all'utente (titolare) di navigare un sito verificatore\glo{} e fornire le credenziali richieste;
+    \item Un'app front-end per l'utente per archiviare e gestire le proprie credenziali; 
+    \item Un componente di comunicazione per consentire lo scambio di credenziali/presentazioni secondo un protocollo standard - il componente di comunicazione sarà implementato 
+tre volte nei tre contesti (lato emittente, lato titolare, lato verificatore).
+\end{itemize}
+
+\subsection{Note Esplicative}
+Alcuni termini utilizzati nel documento possono avere significati ambigui a seconda del contesto. Al fine di evitare equivoci, è stato creato un Glossario contenente tali termini 
+e il loro significato specifico. Per segnalare che un termine è presente nel Glossario, sarà aggiunta una "g" a pedice accanto al termine corrispondente nel testo.
+
+\subsection{Riferimenti}
+1. Normativi: 
+\begin{itemize}
+    \item \textbf{Norme di progetto}: contengono le norme e gli strumenti per gli analisti;
+    \item \textbf{Capitolato d’appalto C3}: \url{https://www.math.unipd.it/~tullio/IS-1/2022/Progetto/C3.pdf};
+    \item \textbf{VE-2023-03-02}: Primo incontro con Infocert.
+    \item \textbf{VE-2023-03-22}
+    \item \textbf{VE-2023-05-12}
+    \item \textbf{VE-2023-05-26}
+    \item \textbf{VE-2023-06-09}
+    \item \textbf{VE-2023-07-14}
+    \item \textbf{VE-2023-08-01}
+\end{itemize}
+
+2. Informativi: 
+\begin{itemize}
+    \item \textbf{\Glodocumento};
+    \item \textbf{Slide del corso di Ingegneria del Software – Analisi dei Requisiti:}: \url{https://www.math.unipd.it/~tullio/IS-1/2022/Dispense/T06.pdf};
+    \item \textbf{Slide del corso di Ingegneria del Software – Diagrammi dei Casi d’Uso}: \url{https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf}.
+\end{itemize}

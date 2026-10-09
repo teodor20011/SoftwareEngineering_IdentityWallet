@@ -1,0 +1,50 @@
+\documentclass[a4paper]{article}
+\usepackage[normalem]{ulem}
+\usepackage{eurosym}
+\usepackage[font=small,labelfont=bf]{caption}
+
+% impostazioni generali
+\input{../../../template/package.tex}
+\input{../../../template/version.tex}
+
+% dati della prima pagina
+\input{config/titlePageInput.tex} % per modificare la prima pagina editare questo file
+
+\makeindex
+
+\makeatletter
+\renewcommand\paragraph{
+\@startsection {paragraph}{4}{0mm}{-\baselineskip}{.5\baselineskip}{\normalfont \normalsize \bfseries }}
+\makeatother
+
+\begin{document}
+
+% Prima pagina
+\input{../../../template/titlePage.tex}
+
+% Diario delle modifiche
+\input{../../../template/changelog.tex}
+\input{config/changeloginput.tex} % editare questo
+\pagebreak
+
+
+% Indice
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
+\pagebreak
+
+% sezioni comuni 
+% Informazioni generali
+% \setcounter{table}{0} forse questo serve se l'indice delle tabelle parte da numeri sospetti
+\input{res/sections/01Introduzione.tex}\newpage %forse si può togliere il newpage
+\input{res/sections/02StrumentiNecessari.tex}\newpage
+\input{res/sections/03originIssuer.tex}\newpage
+\input{res/sections/04originWallet.tex}\newpage
+\input{res/sections/05originverifier.tex}\newpage
+
+\pagebreak
+
+
+\end{document}

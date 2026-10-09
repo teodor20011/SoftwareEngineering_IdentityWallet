@@ -1,0 +1,22 @@
+\pagebreak
+\section{SPID Button}
+Lo SPID Button consente all'utente la scelta del proprio Identity Provider per l'autenticazione.
+Con l'utilizzo di spid-smart-button si intende:
+\begin{itemize}
+    \item facilitare l'integrazione del bottone "Entra con SPID";
+    \item fornire un bottone ospitato via CDN\glo\ (implementabile tramite javascript e CDN);
+    \item migliorare l'esperienza utente.
+\end{itemize}
+
+
+\begin{lstlisting}[style=htmlcssjs]
+    //Codice HTML5
+    <script type="text/javascript" src="https://XXXXXXXXXXXX/spid-button.min.js"></script>
+    <div id="spid-button">
+        <noscript> 
+            Il login tramite SPID richiede che JavaScript sia abilitato nel browser.
+        </noscript>
+    </div>
+    //Da inizializzare con una chiamata JavaScript
+    //Codice Javascript
+\end{lstlisting}

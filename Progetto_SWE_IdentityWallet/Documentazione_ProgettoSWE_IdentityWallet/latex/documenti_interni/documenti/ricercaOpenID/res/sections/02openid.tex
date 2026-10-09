@@ -1,0 +1,186 @@
+\section{OpenID for Verifiable Credential Issuance (OID4VCI)}
+OpenID per fornitura di credenziali verificabili (OID4VCI) è uno standard che definisce una API\glo usata per fornire credenziali verificabili (Verifiable Credentials).
+\\Le VS seguono uno schema ben definito e sono collegate ad un certo utente (Holder) attraverso un collegamento crittografico (Binding). 
+Questo assicura la possibilità di presentare la credenziale ad un verificatore senza chiamare l'emittente per ulteriori verifiche.
+\\L'accesso a questa API è autorizzata attraverso la OAuth 2.0 che il Wallet usa per autorizzarsi e ricevere VS. L'utilizzo della OAuth 2.0 garantisce sicurezza, semplicità e flessibilità.
+
+\subsection{Credential Issuer}
+API legate alla fornitura delle credenziali da parte del Credential Issuer.
+\\Un issuer ha i seguenti endpoint, categorizzabili come interfacce, che offrono diversi servizi:
+\begin{itemize}
+    \item Un endpoint da cui una credenziale può essere fornita;
+    \item Un endpoint opzionale da cui si possono fornire più credenziali insieme;
+    \item Un meccanismo di metadata che offre al Issuer la possibilità di dichiarare in partenza quali credenziali può offrire, è un concetto simile a quello visto nello SPID.
+\end{itemize}
+I certificati hanno la possibilità opzionale di essere abbinati ad una chiave crittografica per garantire anche un Proof Of Posession. Un Credential Isuer utilizza il sistema OAuth 2.0 per autorizzare l'accesso alle proprio piattaforme e richiedere le credenziali.
+
+\subsection{Authorization Code Flow}
+\begin{center}
+	\includegraphics[scale = 0.3]{./res/images/AuthorizationCodeFlow.jpg}
+\end{center}
+
+\subsection{Credential Offer}
+
+
+L'Issuer invia una offerta di credenziale attraverso il protocollo HTTP GET oppure attraverso HTTP redirect, e lo invia al Credential offer Endpoint.
+L'offerta di una credenziale è un oggetto JSON identificato da un URI.
+L'Issuer può anche fornire un Codice QR che che può essere scannerizzato con il Wallet dell'Holder.
+I parametri nel Credential Offer sono credenziali, emittente di credenziali e credenziali supportate.
+Un esempio può essere:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+   "credential_issuer": "https://credential-issuer.example.com",
+   "credentials": [
+      "UniversityDegree_JWT",
+      {
+         "format": "mso_mdoc",
+         "doctype": "org.iso.18013.5.1.mDL"
+      }
+   ],
+   "grants": {
+      "authorization_code": {
+         "issuer_state": "eyJhbGciOiJSU0Et...FYUaBy"
+      },
+      "urn:ietf:params:oauth:grant-type:pre-authorized_code": {
+         "pre-authorized_code": "adhjhdjajkdkhjhdj",
+         "user_pin_required": true
+      }
+   }
+}
+\end{lstlisting}
+
+\subsection{Authorization Endpoint}
+Usando una Authorization Request si può ottenere i permessi per accedere al Endpoint delle credenziali.
+Una possibilità per ottenere i permessi è fornire dettagli di autorizzazione fornendo nel dettaglio il tipo di credenziale che si desidera
+di tipo credenziali openid.\\
+Un esempio può essere :
+\begin{lstlisting}[language=json,firstnumber=1]
+[
+   {
+      "type": "openid_credential",
+      "locations": [
+         "https://credential-issuer.example.com"
+      ],
+      "format": "jwt_vc_json",
+      "credential_definition": {
+         "type": [
+            "VerifiableCredential",
+            "UniversityDegreeCredential"
+         ]
+      }
+   }
+]
+\end{lstlisting}
+Se l'esito della richiesta avrà esito positivo si ricevera un pachetto HTTP contenente i dettagli sulla 
+richiesta effettuata insieme ad un codice di autorizzazione necessario per i passaggi successivi.
+\subsection{Token Endpoint}
+Usando l'Authorizaiton Code in scambio attraverso il Token Endpoint si potrà ottenere un Access Token.\\
+Di seguito un esempio di una richiesta HTTP da fare per ottenere l'Access Token.
+\begin{lstlisting}[language=json,firstnumber=1]
+POST /token HTTP/1.1
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+
+grant_type=authorization_code
+&code=SplxlOBeZQQYbYS6WxSbIA
+&code_verifier=dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk
+&redirect_uri=https%3A%2F%2FWallet.example.org%2Fcb
+\end{lstlisting}
+
+\subsection{Credential Endpoint}
+Una volta ottenuto l'Access Token si può fare richiesta al Credential Endpoint per ottenere la credenziale desiderata.
+Si può richiedere la stessa credenziali molteplici volte per associarla a diversi DIDs (Decentralized Identifiers).
+\\Se l'Access Token permette il reperimento di credenziali multiple è discrezione implementativa quali e in che ordine richiederle.
+La credenziale necessita di essere abbinata crittograficamente al Enduser Identifier.
+Questo abbinamento permette al Verifier di essere sicuro che chi presenta la credenziale è la stessa persona che ne ha fatto richiesta.
+\\Un esempio di una richiesta di credenziale può essere la seguente:
+\begin{lstlisting}[language=json,firstnumber=1]
+POST /credential HTTP/1.1
+Host: server.example.com
+Content-Type: application/json
+Authorization: BEARER czZCaGRSa3F0MzpnWDFmQmF0M2JW
+
+{
+   "format": "jwt_vc_json",
+   "type": [
+      "VerifiableCredential",
+      "UniversityDegreeCredential"
+   ],
+   "proof": {
+      "proof_type": "jwt",
+      "jwt": "eyJraWQiOiJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEva2V5cy8
+      xIiwiYWxnIjoiRVMyNTYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJzNkJoZFJrcXQzIiwiYXVkIjoiaHR
+      0cHM6Ly9zZXJ2ZXIuZXhhbXBsZS5jb20iLCJpYXQiOiIyMDE4LTA5LTE0VDIxOjE5OjEwWiIsIm5vbm
+      NlIjoidFppZ25zbkZicCJ9.ewdkIkPV50iOeBUqMXCC_aZKPxgihac0aW9EkL1nOzM"
+   }
+}
+\end{lstlisting}
+
+Una volta che il Client invia la richiesta per la credenziale l'Issuer può inviarla istantaneamente oppure per diversi motivi
+fornirla in un secondo momento, in questo ultimo caso fornirà sul momento un acceptance\_token che il Client userà successivamente per accettare
+la credenziale.
+
+\subsection{Credential Issuer metadata}
+Di seguito un esempio di un metadata di un issuer, dal quale si può capire il tipo di credenziali che fornisce e dettagli tecnici per averla.
+
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+    "format": "jwt_vc_json",
+    "id": "UniversityDegree_JWT",
+    "type": [
+        "VerifiableCredential",
+        "UniversityDegreeCredential"
+    ],
+    "cryptographic_binding_methods_supported": [
+        "did:example"
+    ],
+    "cryptographic_suites_supported": [
+        "ES256K"
+    ],
+    "display": [
+        {
+            "name": "University Credential",
+            "locale": "en-US",
+            "logo": {
+                "url": "https://exampleuniversity.com/public/logo.png",
+                "alt_text": "a square logo of a university"
+            },
+            "background_color": "#12107c",
+            "text_color": "#FFFFFF"
+        }
+    ],
+    "credentialSubject": {
+        "given_name": {
+            "display": [
+                {
+                    "name": "Given Name",
+                    "locale": "en-US"
+                }
+            ]
+        },
+        "last_name": {
+            "display": [
+                {
+                    "name": "Surname",
+                    "locale": "en-US"
+                }
+            ]
+        },
+        "degree": {},
+        "gpa": {
+            "display": [
+                {
+                    "name": "GPA"
+                }
+            ]
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Sicurezza}
+Per garantire una maggiore sicurezza l'Issuer ha bisogno di sapere a quale Wallet fornisce le credenziali.
+In particolare ha bisogno della certezza che il sudetto wallet sia sotto una certa regolamentazione statale o commerciale e che abbia parametri di sicurezza
+in grado di proteggere le sue chiavi private. In questa maniera l'Issuer non fornisce le credenziali a qualcuno che non ne è il propietario.\\
+Un'altra considerazione utile è che le comunicazioni dovrebebro avvenire sotto il protoccolo TLS.

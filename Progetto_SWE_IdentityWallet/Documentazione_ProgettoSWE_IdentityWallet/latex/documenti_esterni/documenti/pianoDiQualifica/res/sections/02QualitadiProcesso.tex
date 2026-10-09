@@ -1,0 +1,84 @@
+\section{Qualità di Processo}
+Per garantire la qualità dei processi il gruppo utilizza come riferimento lo standard \textbf{ISO/IEC 12207:1995}.
+Dopo aver studiato i vari processi, si sono scelti quelli più adatti alle necessità del progetto.
+\subsection{Processi primari}
+
+
+\begin{longtable}{ 
+    >{\centering}M{0.20\textwidth} 
+    >{\centering}M{0.50\textwidth}
+    >{\centering}M{0.17\textwidth} 
+    }
+\rowcolorhead
+\headertitle{Processo} &
+\centering \headertitle{Descrizione} &	
+\headertitle{Metriche} 
+\endfirsthead
+\endhead
+
+Fornitura & Scelta delle procedure e delle risorse necessarie per garantire che i servizi siano forniti in modo tempestivo & MPR01, MPR02, MPR03, MPR04, MPR05, MPR06, MPR07, MPR08 \tabularnewline
+Sviluppo & Realizzazione di un prodotto software di qualità, che soddisfi le esigenze del cliente& MPR09 \tabularnewline
+\end{longtable}
+
+\subsection{Processi di supporto}
+\begin{longtable}{ 
+    >{\centering}M{0.20\textwidth} 
+    >{\centering}M{0.50\textwidth}
+    >{\centering}M{0.17\textwidth} 
+    }
+\rowcolorhead
+\headertitle{Processo} &
+\centering \headertitle{Descrizione} &	
+\headertitle{Metriche} 
+\endfirsthead
+\endhead
+
+Verifica\glo & Si determina se i requisiti del prodotto sono soddisfatti& MPR10 \tabularnewline
+Gestione della qualità & Viene garantita la conformità dei processi e la conformità con gli standard prefissati& MPR11 \tabularnewline
+Documentazione & Controllo della leggibilità della documentazione prodotta& MPR12 \tabularnewline
+\end{longtable}
+\subsection{Processi organizzativi}
+\begin{longtable}{ 
+    >{\centering}M{0.20\textwidth} 
+    >{\centering}M{0.50\textwidth}
+    >{\centering}M{0.17\textwidth} 
+    }
+\rowcolorhead
+\headertitle{Processo} &
+\centering \headertitle{Descrizione} &
+\headertitle{Metriche} 
+\endfirsthead
+\endhead
+
+Gestione organizzativa & Controllo e organizzazione delle prestazioni di un processo\glo& MPR13 \tabularnewline
+\end{longtable}
+\subsection{Metriche}
+%tabella delle metriche utilizzate, con id, nome, valore minimo e valore ottimale
+\begin{longtable}{ 
+    >{\centering}M{0.10\textwidth} 
+    >{\centering}M{0.25\textwidth}
+    >{\centering}M{0.25\textwidth} 
+    >{\centering\arraybackslash}M{0.25\textwidth} 
+    }
+\rowcolorhead
+\headertitle{\textbf{ID}} &
+\centering \headertitle{\textbf{Nome}} &
+\centering \headertitle{\textbf{Valore minimo}} &
+\centering \headertitle{\textbf{Valore ottimale}}
+\endfirsthead
+\endhead
+%\textbf{MPR001} & \centering Comprensibilità delle funzioni & Indica la percentuale di funzionalità comprese da un utente generico & 80\% & 100\% \tabularnewline
+\textbf{MPR01} & \centering Cost Variance (CV)  & $\geq$ 0\euro &  0\euro \tabularnewline
+\textbf{MPR02} & \centering Schedule Variance (SV)  & $\geq$ -20\% & 0\% \tabularnewline
+\textbf{MPR03} & \centering Budget Variance (BV)  & $\geq$ 0\euro & 0\euro \tabularnewline
+\textbf{MPR04} & \centering Estimated At Completion (EAC)  & $\leq$ preventivo -10\%\\ $\geq$ preventivo +10\%& preventivo \tabularnewline
+\textbf{MPR05} & \centering Estimated To Complete (ETC)  & $\geq$ 0\euro & $\leq$ EAC \tabularnewline
+\textbf{MPR06} & \centering Earned Value (EV)  & $\geq$ 0 \euro & $\leq$ EAC \tabularnewline
+\textbf{MPR07} & \centering Planned Value (PV)  & $\geq$ 0 \euro & $\leq$ Budget at Completion \tabularnewline
+\textbf{MPR08} & \centering Actual Cost (AC)  & $\geq$ 0 & $\leq$ EAC \tabularnewline
+\textbf{MPR09} & \centering Requirements Stability Index (RSI) & $\geq$ 70\% & 100\% \tabularnewline
+\textbf{MPR10} & \centering Code Coverage & $\geq$ 70\% & 100\% \tabularnewline
+\textbf{MPR11} & \centering Metriche Soddisfatte & $\geq$ 70\% & 100\% \tabularnewline
+\textbf{MPR12} & \centering Indice di Gulpease & $\geq$ 40 & $\geq$ 60 \tabularnewline
+\textbf{MPR13} & \centering Rischi non previsti & $\geq$ 0 & 0 \tabularnewline
+\end{longtable}

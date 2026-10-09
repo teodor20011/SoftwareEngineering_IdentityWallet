@@ -1,0 +1,61 @@
+\section{Ordine del giorno}
+\begin{enumerate}
+\item Casi d'uso
+\item Approfondimento del capitolato
+\item Analisi dei requisiti
+\item Sicurezza
+\item Chiarimenti sull'Accessibilità
+\item Contatti con l'azienda 
+\item Link utili
+\end{enumerate}
+
+\subsection{Casi d'uso}
+Durante la riunione con l'azienda proponente del progetto, una delle prime domande riguardava i casi d'uso, da noi affrontati con successo secondo le aspettative dell'azienda proponente.
+
+
+\subsection{Approfondimento del capitolato}
+\begin{itemize}
+    \item Durante la riunione, è stato confermato che il progetto sarà reso open source;
+    \item Delucidazioni sui protocolli e in particolare il protocollo OpenID4VC, con l’obiettivo di fornire una maggiore comprensione del concetto di "Requisiti funzionali e requisiti non funzionali";
+    \item La did resolution per approfondire la parte di verifica (facoltativa);
+    \item E' stato suggerito di consultare il w3c data model.
+\end{itemize}
+
+
+
+\subsection{Analisi dei requisiti}
+Per quanto riguarda l'analisi dei requisiti, l'azienda proponente ha suggerito di esaminare in dettaglio gli use case già presenti, arricchendoli con valutazioni personali. Questa valutazione aggiuntiva permetterà di fornire una prospettiva individuale sulla rilevanza, l'efficacia e il valore di ciascun use case.
+
+
+\subsection{Sicurezza}
+Durante la riunione si è approfondito il discorso sicurezza con alcuni esempi:
+\begin{itemize}
+    \item È importante prestare attenzione agli elementi scambiati durante le comunicazioni tra l'emittente (issuer), il detentore (holder) e il verificatore (verifier).
+     Durante la richiesta di credenziali, sono presenti oggetti che costituiscono effettive credenziali, ma talvolta possono esserci anche oggetti che non rientrano nella categoria delle credenziali. È possibile fare riferimento alle specifiche del W3C per ulteriori informazioni sull'impacchettamento delle credenziali.
+    \item Limitarsi all'utilizzo delle librerie per la codifica criptografica, senza apportare modifiche o personalizzazioni aggiuntive.
+    \item Seguendo i protocolli consigliati (SE-2), il soddisfacimento di alcuni requisiti funzionali avviene in modo implicito:
+      \begin{enumerate}
+        \item La confidenzialità è garantita affinché, nel caso in cui qualcuno intercetti una comunicazione tra il portafoglio (wallet) e il verificatore (verifier), non sia in grado di leggere il suo contenuto.
+        \item L'integrità delle credenziali è garantita attraverso l'uso di firme elettroniche, che vengono gestite dalla libreria.
+      \end{enumerate}
+   
+\end{itemize}
+
+
+\subsection{Chiarimenti sull'Accessibilità}
+L'accessibilità viene considerata seguendo le linee guida relative alle norme di accessibilità, prestando particolare attenzione a garantire una progettazione inclusiva.
+
+\subsection{Contatti con l'azienda}
+
+Proposta di organizzare un meeting bi-settimanale, che si svolgerà ogni venerdì alle ore 11, per fare il punto sullo stato degli sprint.\\
+Durante questo incontro, sarà possibile discutere i progressi, le sfide e le eventuali richieste specifiche.\\
+Inoltre, per le richieste che non richiedono un'interazione diretta, si suggerisce di utilizzare la comunicazione asincrona tramite email.\\
+In questo modo, sarà possibile fare richieste, ad esempio per librerie o altre risorse, in modo flessibile e senza necessità di una risposta immediata.
+
+ \subsection{Link utili}
+ Durante il meeting, l'azienda ha fornito dei link:\\
+\href{https://github.com/eu-digital-identity-wallet/architecture-and-reference-framework/releases}{Architecture and reference framework}\\
+\href{https://openid.net/openid4vc/}{OpenID for Verifiable Credentials}\\
+\href{https://2022.stateofjs.com/en-US/libraries/}{Libraries}\\
+\href{https://www.agid.gov.it/it/design-servizi/accessibilita/linee-guida-accessibilita-pa#:~:text=AGID%20ha%20emanato%20le%20Linee%20Guida%20sull%27accessibilit%C3%A0%20degli,alle%20prescrizioni%20in%20materia%20di%20accessibilit%C3%A0%3B%20Altri%20elementi}{Linee guida accessibilità - PA}\\
+\href{https://openid.net/wordpress-content/uploads/2022/06/OIDF-Whitepaper_OpenID-for-Verifiable-Credentials-V2_2022-06-23.pdf}{OpenID for Verifiable Credentials}

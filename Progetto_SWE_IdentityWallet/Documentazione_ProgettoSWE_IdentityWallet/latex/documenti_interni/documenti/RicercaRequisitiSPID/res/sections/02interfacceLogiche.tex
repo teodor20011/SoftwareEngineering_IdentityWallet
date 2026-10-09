@@ -1,0 +1,15 @@
+\section{Interfacce Logiche}
+Esaminando le interfacce logiche si può capire il funzionamento.
+\subsection{Interfacce dell' Identity Provider}
+\begin{itemize}
+    \item \textbf{IIDPUserInterface}: permette agli utenti l’interazione via web in fase di autenticazione.
+    \item \textbf{IAuthnRequest}: permette la ricezione di richieste di autenticazione SAML.
+    \item \textbf{IMetadataRetrieve}: permette il reperimento dei SAML metadata dell’Identity Provider.
+\end{itemize}
+\subsection{Interfacce del Service Provider}
+\begin{itemize}
+    \item \textbf{IAuthnResponse}: permette la ricezione delle risposte di autenticazione SAML.
+    \item \textbf{IMetadataRetrieve}: permette il reperimento dei SAML metadata del Service Provider.
+    \item \textbf{IDSResponse}: permette la ricezione delle risposte da parte del Discovery Service.
+\end{itemize}
+\pagebreak

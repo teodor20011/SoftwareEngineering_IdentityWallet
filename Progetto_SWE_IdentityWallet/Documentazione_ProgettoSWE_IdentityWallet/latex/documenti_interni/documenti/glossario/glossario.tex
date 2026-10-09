@@ -1,0 +1,97 @@
+\documentclass[a4paper]{article}
+\usepackage[normalem]{ulem}
+\usepackage{eurosym}
+\usepackage[font=small,labelfont=bf]{caption}
+
+% impostazioni generali
+\input{../../../template/package.tex}
+\input{../../../template/version.tex}
+
+\renewcommand\thesection{}
+\makeatletter
+\renewcommand\thesection{}
+\renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
+\makeatother
+
+
+% dati della prima pagina 
+\input{config/titlePageInput.tex} % per modificare la prima pagina editare questo file
+
+\makeindex
+
+\makeatletter
+\renewcommand\paragraph{
+\@startsection {paragraph}{4}{0mm}{-\baselineskip}{.5\baselineskip}{\normalfont \normalsize \bfseries }}
+\makeatother
+
+\begin{document}
+
+% Prima pagina
+\input{../../../template/titlePage.tex}
+
+% Diario delle modifiche
+\input{../../../template/changelog.tex}
+\input{config/changelogInput.tex} % editare questo
+\pagebreak
+
+
+% Indice
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+    %\listoffigures %elenco figure
+    %\listoftables  %elenco tabelle
+}
+\pagebreak
+
+% sezioni comuni 
+%si può aggiungere una sezione dei riferimenti, dove si citano il capitolato, wikipedia, treccani e i libri di SWE
+\input{res/sections/A.tex}
+\pagebreak
+\input{res/sections/B.tex}
+\pagebreak
+\input{res/sections/C.tex}
+\pagebreak
+\input{res/sections/D.tex}
+\pagebreak
+\input{res/sections/E.tex}
+\pagebreak
+%\input{res/sections/F.tex}
+%\pagebreak
+\input{res/sections/G.tex}
+\pagebreak
+\input{res/sections/H.tex}
+\pagebreak
+\input{res/sections/I.tex}
+\pagebreak
+\input{res/sections/J.tex}
+\pagebreak
+\input{res/sections/K.tex}
+\pagebreak
+%\input{res/sections/L.tex}
+%\pagebreak
+\input{res/sections/M.tex}
+\pagebreak
+%\input{res/sections/O.tex}
+%\pagebreak
+\input{res/sections/P.tex}
+\pagebreak
+\input{res/sections/Q.tex}
+\pagebreak
+\input{res/sections/R.tex}
+\pagebreak
+\input{res/sections/S.tex}
+\pagebreak
+\input{res/sections/T.tex}
+\pagebreak
+\input{res/sections/U.tex}
+\pagebreak
+\input{res/sections/V.tex}
+\pagebreak
+\input{res/sections/W.tex}
+\pagebreak
+\input{res/sections/X.tex}
+\pagebreak
+\input{res/sections/Z.tex}
+
+\end{document}

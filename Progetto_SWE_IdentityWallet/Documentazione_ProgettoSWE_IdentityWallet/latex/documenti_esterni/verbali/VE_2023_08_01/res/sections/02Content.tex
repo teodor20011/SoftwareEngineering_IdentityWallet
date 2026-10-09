@@ -1,0 +1,30 @@
+\section{Ordine del giorno}
+\begin{enumerate}
+\item Esposizione POC con azienda proponente Infocert
+\item Problemi con walt.id
+\item Link rilasciatici da Infocert
+\end{enumerate}
+
+\subsection{Esposizione POC con azienda proponente Infocert} 
+Il gruppo, il 1 agosto 2023, ha esposto la POC realizzata. Durante la discussione sono emersi consigli e sono stati risolti i dubbi.
+
+
+
+
+\subsection{Problemi con walt.id}
+Walt.id afferma di avere il protocollo attivo (in parte è vero).
+Se andiamo sul sito openID, wallt.id è un client testato, ma soltanto il client, non il wallet, quindi solo una parte è testata.
+Il problema è che loro in parte hanno implementato il protocollo, ma solo lato client.
+Il client id è un mock, non riusciamo a impostarlo perché non ci sono tutti i pezzi (da completare), manca la parte di autorizzazione iniziale.
+Ci sono due strade: adottiamo la strada di usare il loro mock e fare il giro come se fosse un'autenticazione vera.
+Altrimenti, l'altra strada è utilizzare un'altra libreria per questa parte, ma non sappiamo se sia compatibile con i tempi (consigliata la prima strada).
+Consigliato lavorare di incapsulamento.
+Simulare le chiamate con valori mockati, tutto fisso. Esempio emissione token, la prima chiamata prevede anche il passaggio delle credenziali del client id, ma non funziona.
+Scriviamo il codice e aggiungiamo commenti. In questo modo, quando la libreria sarà completata e funzionante, sarà pronta all'uso.
+
+\subsection{Link rilasciatici da Infocert}
+\begin{itemize}
+\item \textbf{OpenID for Verifiable Credentials - Libraries:} \url{https://openid.net/sg/openid4vc/libraries/}
+\item \textbf{Public Roadmap | walt.id:} \url{https://walt-id.notion.site/fcde1687baab42378b3047d4a22eeaca?v=1140dd17c17b4726a70cc1465d20866d}
+\item \textbf{OID4VCI:} \url{https://github.com/Sphereon-Opensource/OID4VCI}
+\end{itemize}

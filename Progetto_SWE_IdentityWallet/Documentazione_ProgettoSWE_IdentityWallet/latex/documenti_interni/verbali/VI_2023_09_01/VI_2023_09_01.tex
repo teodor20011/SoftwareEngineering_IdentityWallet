@@ -1,0 +1,37 @@
+\documentclass[a4paper]{article}
+\usepackage[normalem]{ulem}
+
+% impostazioni generali
+\input{../../../template/package.tex}
+
+% dati relativi alla prima pagina
+\input{config/titlePageInput.tex} % editare questo
+
+\makeindex
+
+\begin{document}
+\counterwithin{table}{section}
+
+% Prima pagina
+\input{../../../template/titlePage.tex}
+
+% Diario delle modifiche
+\input{../../../template/changelog.tex}
+\input{config/changelogInput.tex} % editare questo
+\pagebreak
+
+% Indice
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
+\pagebreak
+
+% sezioni comuni
+
+% Informazioni generali
+\input{res/sections/01Info.tex}
+\pagebreak
+\input{res/sections/02Content.tex}
+
+\end{document}

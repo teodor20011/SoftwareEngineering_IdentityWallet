@@ -1,0 +1,48 @@
+\section{Strumenti Necessari}
+Per poter avviare il progetto occorre avere installato i seguenti programmi:
+\begin{itemize}
+   \item  Brew (versione minima 4.1.11);
+   \item  npm (versione minima 9.8.1);
+   \item  Nodejs (versione minima v20.6.1)
+   \item  Docker (versione 20.10.24, oppure 24.0.6 o successivi)
+   \item Docker Compose (versione 1.29.2-1)
+\end{itemize}
+Inoltre bisogna avere i permessi di amministratore del proprio computer
+
+
+
+\subsection{Credenziali di accesso necessarie per il progetto}
+Le credenziali utili per il progetto sono:
+\begin{itemize}
+   \item Database per Origin Wallet: User: admin, Host: 10.5.0.33, Database: originwallet, Password: admin, Port: 5432
+   \item Database per Origin Issuer: User:admin, Host:10.5.0.31, Database:originissuer, Password: admin, Port:5432
+   \item Utente Origin Issuer: email mario.rossi@gmail.com, password Mariorossi123!
+   \item Utente Sysadmin Origin Issuer: email: ADMIN@admin.com password: ADmin1234?
+\end{itemize}
+
+\subsection{Requisiti minimi}
+Per poter avviare il progetto occorre avere, sulla propria macchina, queste specifiche minime:
+\begin{itemize}
+   \item processore i5 2.7Ghz;
+   \item 8GB di memoria RAM;
+   \item 100GB memoria SSD
+   \item sistema operativo Ubuntu, Linux (versione 22), oppure MacOS versione I5 (potrebbe dare problemi con la versione M1)
+\end{itemize}
+Le specifiche minime consigliate sono:
+\begin{itemize}
+   \item processore i7 2.7Ghz;
+   \item 12GB di memoria RAM;
+   \item 100GB memoria SSD
+   \item sistema operativo Ubuntu, Linux (versione 22), oppure MacOS versione I5 (potrebbe dare problemi con la versione M1)
+\end{itemize}
+
+\subsection{Deploy del sistema}
+
+Script di avvio:
+\begin{itemize}
+   \item \code{git clone \url{https://github.com/Project-Origin-2023/Personal-Identity-Wallet}}
+   \item \code{cd scripts}
+   \item \code{sh deploy.sh}
+   \item inserire la password di sistema
+   \item attendere completamento
+\end{itemize}

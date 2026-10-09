@@ -1,0 +1,20 @@
+\section{Attribute Authority}
+\subsection{Descrizione}
+Durante la ricerca del sistema SPID non sono state fornite informazioni dettagliate sulle funzioni di questo attore. Tuttavia, è stato chiarito che il suo ruolo è quello di 
+verificare gli altri due tipi di enti coinvolti nel sistema.
+\\ Esso deve essere in grado di certificare un determinato set di attributi relativi ad un soggetto titolare di
+un'identità digitale. 
+\\ A fronte di una richiesta di uno o più attributi l’Attribute Authority deve essere
+in grado di:
+\begin{itemize}
+    \item \textbf{1}. ricevere ed interpretare la richiesta di attributo pervenuta da un Service Provider;
+    \item \textbf{2}. elaborare la richiesta;
+    \item \textbf{3}. costruire la risposta inerente la richiesta pervenuta ed inoltrarla al Service Provider.
+\end{itemize}
+
+\subsection{Interfacce}
+Il componente Attribute Authority deve esporre le seguenti interfacce:
+\begin{itemize}
+    \item \textbf{IAttributeQuery}: interfaccia applicativa che supporta le operazioni di richiesta di attributo SAML;
+    \item \textbf{IMetadataRetrive}: permette il reperimento dei SAML metadata da parte del Service Provider.
+\end{itemize}

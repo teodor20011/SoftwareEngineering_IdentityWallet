@@ -1,0 +1,43 @@
+\documentclass[12pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[italian]{babel}
+\usepackage{hyperref}
+\usepackage{eurosym}
+\usepackage{numprint}
+\input{../../../template/package.tex}
+\hypersetup{
+  colorlinks,
+  allcolors=.,
+  urlcolor=blue,
+}
+\date{26 marzo 2023}
+\signature{}
+\address{Prof. Vardanega\\Prof. Cardin\\Università degli Studi di Padova\\Dipartimento di Matematica\\Via Trieste 63\\35121 Padova PD}
+
+\begin{document}
+    \begin{letter}{Egregio Professor Vardanega,\\Egregio Professor Cardin,}
+        \begin{minipage}{.4\textwidth}
+            \begin{flushleft}
+                \includegraphics[width=.6\linewidth]{../../../template/images/logo.png} 
+            \end{flushleft}
+        \end{minipage}
+        \begin{minipage}{.5\textwidth}
+            \begin{flushright}
+                \includegraphics[width=.4\linewidth]{../../../template/images/logoUnipd.png}
+            \end{flushright}
+        \end{minipage}
+        {    
+        \begin{flushleft}
+            Gruppo 15 - Project Origin\\ \href{mailto:projectorigin2023@gmail.com}{projectorigin2023@gmail.com}\\Corso di Ingegneria del Software\\A.A. 2022-2023
+        \end{flushleft} 
+        }
+        \opening{Con la presente il gruppo Project Origin desidera comunicarVi che intende candidarsi ufficialmente per la fornitura del progetto da Voi commissionato, denominato \textit{Personal Identity Wallet} e proposto dall'azienda Infocert.\\Il verbale esplorativo con l'azienda, la dichiarazione di impegni e l'analisi dei capitolati sono disponibili nel repository\glo{} pubblico, disponibile al seguente indirizzo: \begin{center} \url{https://github.com/Project-Origin-2023/docs} \end{center}}
+        La spesa preventivata ammonta a \numprint{12690.00} \euro, come riportato nella dichiarazione di impegni, e la consegna è stimata per il 10-09-2023.\\
+        %credo non sia necessario aggiungere la lista dei membri del gruppo (la mettiamo nella dichiarazione impegni)
+        {Cordiali saluti\\Project Origin}
+    \end{letter}
+
+\end{document}

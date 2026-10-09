@@ -1,0 +1,198 @@
+\section{Processi di Supporto}\label{sup}
+
+\subsection{Documentazione}
+\subsubsection{Scopo}
+Sarà necessario documentare ogni fase e attività coinvolta nello sviluppo del progetto.\\
+Questa sezione illustrerà le regole e gli standard da seguire durante la produzione 
+dei documenti per l'intero ciclo di vita del software. \\
+Qui esamineremo approfonditamente i processi adottati per la stesura, la verifica\glo\ , il mantenimento e l’approvazione di tutta la documentazione prodotta dal nostro team. \\
+Lo scopo è di fornire una descrizione accurata di tutte le regole, le convenzioni e i limiti che ci impegniamo a rispettare per ottenere una documentazione efficace, coerente e formale.\\
+
+\subsubsection{Documenti prodotti}
+\begin{itemize}
+    \item \NdPdocumento;
+    \item \Glodocumento;
+    \item \PdPdocumento;
+    \item \PdQdocumento;
+    \item \AdRdocumento;
+    \item \textit{Verbali}.
+\end{itemize}
+
+\subsubsection{Documenti tecnici}\label{doctec}
+Durante il progetto sarà necessario fare diversi lavori di ricerca e di studio su standard, tecnologie e protocolli da utilizzare.\\
+Per facilitare questa azione gli analisti incaricati dovranno redarre dei documenti tecnici, categorizzati come documenti interni.\\
+Questi documenti hanno come obiettivo il riassumere brevemente e spiegare i concetti chiave di un detterminato argomento citando le fonti e preferendo un approccio schematico.\\
+Questi documenti dovranno anch'essi essere verificati, successivamente dovranno essere letti da tutti i membri del gruppo in quanto le informazioni
+al loro interno sono destinate a tutti i membri.
+
+\subsubsection{Ciclo di vita di un documento}
+\begin{itemize}
+    \item \textbf{Creazione Struttura}: A partire da un template comune viene creata la struttura del documento inserendo il registro delle modifiche e l’indice dei contenuti;
+    \item \textbf{Stesura}: Durante questa fase i redattori producono le sezioni assegnate a loro dal Responsabile\glo\ di Progetto aggiornando progressivamente il documento;
+    \item \textbf{Approvazione}: Quando un redattore ha terminato le sue modifiche il Responsabile del progetto assegna ad un Verificatore\glo\ il compito di esaminare ed approvare le modifiche.
+Il documento viene pubblicato se tutte le modifiche hanno ricevuto l’approvazione da parte dei Verificatori e successivamente dal Responsabile del Progetto.
+\end{itemize}
+
+\subsubsection{Verbali}\label{Verbali}
+I verbali sono suddivisi in Interni ed Esterni.\\
+Dovranno contenere le seguenti informazioni:
+\begin{itemize}
+    \item Motivo della riunione;
+    \item Luogo della riunione (se in presenza o da remoto);
+    \item Data, ora e durata della riunione;
+    \item Partecipanti della riunione;
+    \item Resoconto della riunione con le decisioni intraprese.
+\end{itemize}
+
+\subsubsection{Strumenti utilizzati}
+Gli strumenti utilizzati per la stesura dei documenti sono:
+\begin{itemize}
+    \item \textbf{LATEX}: Tutti i documenti prodotti dal gruppo verranno redatti usando il linguaggio di markup LateX;
+    \item \textbf{Visual Studio Code con l’estensione Latex Workshop}: Il gruppo adotterà questo strumento per scrivere i documenti e per creare i file;
+    \item \textbf{Draw.io}: Sito online per la creazione di grafici UML;
+    \item \textbf{GanttProject}: Programma usato per la realizzazione di diagrammi di Gantt.
+\end{itemize}
+Per semplificare le operazioni di verifica\glo\ e di lettura della documentazione dovrà essere reso disponibile il documento completo in formato PDF.
+
+
+\newpage
+\subsection{Directory Documenti}
+\subsubsection{Struttura delle directory e dei file}\label{Dir}
+I documenti saranno archiviati con la seguente struttura della directory: \\
+
+\begin{forest}
+  for tree={
+    font=\ttfamily,
+    grow'=0,
+    child anchor=west,
+    parent anchor=south,
+    anchor=west,
+    calign=first,
+    edge path={
+      \noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) +(7.5pt,0) |- node[fill,inner sep=1.25pt] {} (.child anchor)\forestoption{edge label};
+    },
+    before typesetting nodes={
+      if n=1
+        {insert before={[,phantom]}}
+        {}
+    },
+    fit=band,
+    before computing xy={l=15pt},
+  }
+[docs
+  [documenti\_esterni
+      [verbali
+        [VE\_YYYY\_MM\_DD.pdf]
+      ]
+      [documenti
+        [PdP.pdf]
+      ]
+  ]
+  [documenti\_interni
+    [verbali
+      [VI\_YYYY\_MM\_DD.pdf]
+    ]
+    [documenti
+      [NdP.pdf]
+    ]
+  ]
+  [latex
+    [documenti\_esterni
+        [verbali
+          [VE\_YYYY\_MM\_DD
+            [VE\_YYYY\_MM\_DD.pdf]
+            [VE\_YYYY\_MM\_DD.tex]
+          ]
+        ]
+        [documenti
+          [PdP
+            [PdP.pdf]
+            [PdP.tex]
+          ]
+        ]
+    ]
+    [documenti\_interni
+      [verbali
+        [VI\_YYYY\_MM\_DD
+          [VI\_YYYY\_MM\_DD.pdf]
+          [VI\_YYYY\_MM\_DD.tex]
+        ]
+      ]
+      [documenti
+        [NdP
+          [NdP.pdf]
+          [NdP.tex]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}\\
+I documenti saranno redatti in formato Latex e la loro stesura averrà all'interno della cartella \code{docs/latex}.\\
+Saranno suddivisi nelle rispettive cartelle \code{documenti\_esterni} e \code{documenti\_interni} e per ciascuna categoria ripartiti
+nelle cartelle \code{verbali} e \code{documenti}.\\
+Un documento è archiviato nella sua rispettiva cartella \code{nomeDocumento} dove al suo interno si può trovare il file Latex
+\code{nomeDocumento.tex}, \code{nomeDocumento.pdf} con il file compilato, la cartella \code{res} contenente file di risorse del documento come allegati
+e le sezioni utilizzate, ed infine la cartella \code{config} contenente la configurazione specifica del documento che instanzia il template.\\
+La cartella \code{docs/template} contiene i file creati appositamente per avere un template utilizzabile per tutti i documenti.\\
+Per facilitare la lettura e separare i file Latex e le loro rispettive dipendenze si è deciso di creare una struttura directory
+parallela contenente solo i file PDF.\\
+Le rispettive cartelle sono \code{docs/documenti\_esterni} e \code{docs/documenti\_interni} anch'esse individualmente ripartite in documenti e verbali.\\
+Un documento sarà quindi archiviato per esempio come\\
+\code{docs/documenti\_interni/documenti/nomeDocumento.pdf}.\\
+Si è deciso di mantenere i documenti in formato PDF sia nella cartella latex che nelle cartelle\\
+\code{docs/documenti\_esterni} e \code{docs/documenti\_interni}.\\
+Per ovviare al ovvio problema della inconsistenza dei file PDF ed evitare che qualcuno legga un documento non aggiornato si è attuato una azione che 
+mantiene la consistenza e la coerenza dei file PDF spiegata di seguito.\\
+
+\subsubsection{Github Actions copyONPush.yaml}
+Si è utilizzata lo strumento GitHub Actions, in particolare esiste uno script contenuto nella cartella\\
+\code{.github/workflows/copyOnPush.yaml} che ad ogni push copia e sovrascrive
+i file PDF dalla cartella \code{docs/latex} nelle rispettive cartelle parallele.\\
+Utilizzando questo strumento si ha sempre i file aggiornati e non è necessario copiarli manualmente, i file vengono spostati automaticamente dalla cartella latex nelle cartelle dedicate solo
+ai file PDF.\\
+Per questo motivo è essenziale spiegare che è dovere solo del script copiare i file PDF, i membri del gruppo non devono spostare file PDF nelle cartelle dedicate, essi vengono spostati solo e solamente attraverso 
+lo script.\\
+Tutti i file Latex all'interno della cartella \code{docs/latex} devono stare alla stessa altezza della gerarchia, questo per non creare problemi legati alla incompatibilità 
+con i percorsi URL nel file di template.
+Nelle cartelle parallele dedicate solo ai PDF tuttavia si è deciso che è possibile creare delle cartelle contenitori per ripartire diversi documenti.
+Essi sono spostati automaticamente dallo script.
+I file legati alla candidatura iniziale sono stati ragruppati dallo script dentro
+la sottocartella\\
+\code{docs/documenti\_esterni/documenti/candidatura}.\\
+I file legati a questioni strettaente tecniche sono stati raggruppati dallo script dentro la sottocartella\\
+\code{docs/documenti\_interni/documenti/documenti\_tecnici}.
+
+\subsection{Forma Documenti}
+\subsubsection{Struttura Documenti}\label{strutturaDocumenti}
+La prima pagina è composta dal logo del gruppo, email di riferimento, titolo del documento.
+Sotto si può trovare una struttura indicante la versione attuale, il responsabile che ha approvato il documento, i redattori e i verificatori che hanno contribuito al documento, l'uso che ne si fa e i destinatari del documento.
+In basso si trova una descrizione breve del documento.
+Tutte queste informazioni sono istanziabili per ogni documento attraverso il file di configurazione \code{titlePageInput.tex}.
+In qualsiasi pagina del documento si può trovare il logo del gruppo in alto a sinistra, il nome del documento in alto a destra ed in fine a piè di pagina si può trovare la pagina corrente con il numero totali di pagine.
+
+\subsubsection{Registro delle modifiche}\label{Registro}
+All’inizio del documento deve essere presente una tabella riassuntiva della cronologia delle versioni del documento dove sono specificate le modifiche apportate.
+Nella tabella ogni riga corrisponde ad una modifica apportata, mentre le colonne sono le seguenti:
+\begin{itemize}
+    \item \textbf{Versione}: Versione del documento dopo la modifica;
+    \item \textbf{Data}: Data della modifica;
+    \item \textbf{Autore}: Nome dell’autore della modifica o della azione apportata;
+    \item \textbf{Ruolo}: Redattore nel caso di modifiche del documento, Verificatore\glo\ per chi verifica\glo\ le modifiche apportate e Responsabile\glo\ per l’approvazione finale da parte del Responsabile del Progetto;
+    \item \textbf{Descrizione}: Breve descrizione della modifica apportata.
+\end{itemize}
+
+\subsubsection{Forma Tipografica}
+\begin{itemize}
+  \item \textbf{Nomi dei documenti}: I nomi dei documenti iniziano sempre con la lettera minuscola. Se presenti più parole, queste saranno attaccate ma distinguibili dalla lettera maiuscola (convenzione "CamelCase");
+  \item \textbf{Nomi dei verbali}: I verbali avranno la seguente struttura \code{V[Tipologia]\_[YYYY]\_[MM]\_[DD]} con la tipologia che può essere Interno \code{I} oppure Esterno \code{E}.
+\end{itemize}
+
+\subsection{Versionamento}
+I documenti dovranno supportare il versionamento, in modo da permettere l’accesso ad ogni singola versione prodotta durante il loro ciclo di vita. \\
+Il formato identificativo del versionamento dovrà seguire questa forma: \\
+v[X].[Y].[Z] \\
+Il valore "X" rappresenta la versione pubblicamente rilasciata e approvata dal responsabile del progetto. Questa numerazione inizia da zero e viene incrementata ad ogni nuova versione approvata. \\
+Il valore "Y" indica una revisione da parte del Verificatore effettuata per assicurarsi che, dopo l'implementazione di una modifica, il prodotto sia ancora integro e coerente. La numerazione inizia anch'essa da zero e viene azzerrata ogni volta che viene incrementato il valore "X". \\
+Il valore "Z" viene incrementato ad ogni modifica del prodotto. Anche questa numerazione inizia da zero e viene azzerata ogni volta che viene incrementato il valore "X" o "Y". \\

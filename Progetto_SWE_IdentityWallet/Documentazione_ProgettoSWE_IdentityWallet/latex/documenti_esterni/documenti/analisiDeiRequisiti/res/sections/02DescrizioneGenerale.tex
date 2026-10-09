@@ -1,0 +1,38 @@
+\section{Descrizione generale}
+
+\subsection{Obiettivo del prodotto}
+L’obiettivo del prodotto è quello di creare un’applicazione tramite la quale l’utilizzatore dell’applicazione, l’Holder, riesce a chiedere e successivamente a ricevere le proprie credenziali da un’istituzione (l’Issuer) e a raccoglierle nel suo wallet digitale. Successivamente le potrà gestire ed utilizzare per accedere ad aree riservate che richiedono un metodo di autenticazione. Il Verifier verifica che le credenziali siano integre e valide e permette l’accesso all’Holder all’area riservata richiesta. Per verificare e validare le credenziali il Verifier utilizza un’infrastruttura di supporto chiamata Verifiable Data Registry. Quindi il Verifier interroga il Verifiable Data Registry per controllare la validità delle credenziali fornite dall’Holder. Dopo la verifica delle credenziali d’accesso l’Holder potrà accedere all’area riservata richiesta.
+
+\subsection{Funzioni del prodotto}
+Per quanto riguarda le credenziali d’accesso, dovrà essere possibile: 
+\begin{itemize}
+    \item \textbf{Creare le credenziali}: l’Holder sarà capace di richiedere le sue credenziali selezionando le informazioni di suo interesse e consegnandole all’Issuer. L’Issuer si impegna di creare la credenziale rispettando i dati forniti dall’utente;
+    \item \textbf{Memorizzare e gestire le credenziali}: il Personal Identity Wallet si occuperà di memorizzare tutte le credenziali di accesso dell’utente in un unico luogo digitale sicuro. L’utente potrà visualizzare l’elenco delle credenziali di accesso presenti nel suo wallet;
+    \item \textbf{Consegnare in modo sicuro le credenziali}: le credenziali d’accesso create dall’Issuer dovranno essere consegnate in modo sicuro all’Holder. Il Personal Identity Wallet si occuperà di garantire la riservatezza della credenziale; verrà inoltre garantita la possibilità di verifica crittografica da parte di un verifier che la credenziale non sia stata alterata durante la trasmissione.
+\end{itemize}
+Per quanto riguarda l’amministrazione delle credenziali, dovrà essere possibile: 
+\begin{itemize}
+    \item \textbf{Visualizzare le credenziali}: l’Holder sarà capace di visualizzare in modo chiaro e strutturato tutte le proprie credenziali d’accesso disponibili nel suo Personal Identity Wallet con le informazioni di suo interesse (es. Issuer, la data di creazione della credenziale d’accesso e le possibili scadenze);
+    \item \textbf{Eliminare le credenziali}: l’utente sarà capace di eliminare le sue credenziali d’accesso che desidera dal proprio Personal Identity Wallet. Questa funzionalità sarà disponibile per garantire la pulizia del wallet ed eliminare le informazioni non più utili.
+\end{itemize}
+Per quanto riguarda il Verifier: 
+\begin{itemize}
+    \item \textbf{Richiedere presentazione delle credenziali}: il Verifier dovrà essere capace di richiedere la prresentazione, in modo chiaro e sicuro, delle credenziali d’accesso dell’Holder per permettere l’accesso a determinate aree riservate o a determinati servizi;
+    \item \textbf{Consegnare le credenziali richieste}: l’Holder potrà consegnare le credenziali richieste dal Verifier in modo sicuro;
+    \item \textbf{Validare le credenziali}: il Verifier verificherà crittograficamente che le credenziali d’accesso fornite dall’Holder siano valide ed integre per poter dare l’accesso ad utenti legittimi e verificati;
+    \item \textbf{Concedere l'accesso}: il Verifier, dopo la validazione delle credenziali, dovrà permettere l’accesso all’Holder all’area o ai servizi riservati in modo sicuro.
+\end{itemize}
+
+\subsection{Caratteristiche degli utenti}
+L’applicativo potrà essere utilizzato da ogni attore (Holder, Issuer, Verifier). \\
+I ruoli potrebbero essere (ma non solo): 
+\begin{itemize}
+    \item Un’amministrazione pubblica (centrale o locale);
+    \item Un cittadino italiano maggiorenne, oppure un cittadino estero con codice fiscale italiano;
+    \item Un’impresa o un’organizzazione (pubblica o privata);
+    \item Un professionista (avvocato, commercialista, notaio, ecc.);
+    \item Un’università o un centro di ricerca;
+    \item Un’associazione o un’organizzazione no profit;
+    \item Un servizio di pubblica utilità (acqua, gas, energia elettrico, ecc.), finanziario (banca, ecc.), sanitario (Fascicolo Sanitario Elettronico, ecc.), 
+di trasporto pubblico (Trenitalia, ecc.).
+\end{itemize}

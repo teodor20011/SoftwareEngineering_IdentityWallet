@@ -1,0 +1,49 @@
+\section*{C3 - Personal Identity Wallet}
+\begin{itemize}
+    \item \textbf{Proponente}: Infocert
+    \item \textbf{Obiettivo}: Realizzazione di un sistema d'identità digitale
+\end{itemize}
+
+ \subsection*{Descrizione}
+ Tutti i giorni utilizziamo delle identità digitali per accedere a servizi online (per esempio
+ accedi con Google). Tuttavia questo non basta in quei contesti in cui è richiesto valore
+ legale (per esempio per accesso a dati sanitari o servizi bancari). In molti casi sono stati
+ creati sistemi di autenticazione ad-hoc, ma sono limitati a singoli servizi.
+ Per questo motivo diversi stati hanno realizzato sistemi d'identità digitale (in Italia SPID
+ e CIE). L’Unione Europea ha recentemente emanato un regolamento per la realizzazione
+ di un sistema d'identità digitale utilizzabile da tutti i cittadini europei in tutti i paesi
+ dell’Unione Europea.
+ 
+ \subsection*{Obiettivo}
+ Il capitolato prevede la realizzazione di un sistema di autenticazione dove un ente rilascia
+certificati d'identità ad un utente, che le memorizza in un "wallet", e le può utilizzare
+per accedere a servizi. Sono previsti tre attori:
+\begin{itemize}
+    \item \textbf{Emittente}: Entità che rilascia certificati
+    \item \textbf{Holder}: Persona fisica, che memorizza credenziali d'identità all’interno di un wallet
+    \item \textbf{Verifier}: Entità che richiede delle credenziali per accedere a dei servizi
+\end{itemize}
+
+\subsection*{Tecnologie richieste}
+
+È necessario realizzare le seguenti componenti architetturali:
+\begin{itemize}
+    \item Componente back-office (web app) per consentire all’issuer di rilasciare certificati d'identità;
+    \item Demo di interazione utente (web app) per consentire all’utente di navigare e richiedere le credenziali da un issuer, e di utilizzarle per accedere ad un servizio;
+    \item App front-end per l’utente (web app) dove l’utente memorizza le credenziali;
+    \item Componente di comunicazione per consentire lo scambio di credenziali secondo un protocollo standard.
+\end{itemize}
+Per la web app non ci sono vincoli imposti, si può scegliere di realizzare un unico applicativo oppure una webapp per ogni componente.
+Le credenziali devono rispettare il formato JSON W3C e devono essere scambiate con il
+protocollo OpenID4VP.
+
+\subsection*{Note positive}
+\begin{itemize}
+    \item Attualità del tema proposto
+    \item Libertà nelle tecnologie utilizzate
+\end{itemize}
+\subsection*{Criticità}
+\begin{itemize}
+    \item Complessità dello standard europeo di riferimento
+\end{itemize}
+

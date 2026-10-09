@@ -1,0 +1,26 @@
+\section{Ordine del giorno}
+\begin{enumerate}
+\item Discussione commento RTB;
+\item Prossimo incontro proponente;
+\item Walt id.%qui metto le cose di Andrei con walt id
+\end{enumerate}
+%da aggiungere a glossario: UI, branch, postman
+\subsection{Discussione commento RTB}
+All'inizio della riunione si sono analizzati alcuni punti del commento, in particolare la sezione sulla documentazione.
+\subsection{Prossimo incontro proponente}
+Successivamente si è deciso di scrivere al proponente per comunicare l'esito della revisione e per chiedere un incontro per chiarire alcuni dubbi. %qui riscrivo meglio
+\subsection{Walt id}
+
+\begin{itemize}
+    \item Per quanto riguarda walt id, si è deciso di utilizzare il wallet kit al posto dell'SSI Kit, perché è una sovrastruttura dell'SSI Kit e fornisce delle API ad alto livello per l'interazione con i frontend e i protocollo di scambio delle credenziali.
+    \item Al momento le nuove funzionalità sono state implementate in un branch\glo separato, ma verranno integrate nel branch principale una volta che saranno state testate.
+    \item Nel frattempo la demo\footnote[1]{\url{https://wallet.walt.id/}} di wallet creata da Waltid è stata aggiornata.
+    \item Un problema che subito si è presentato è che l'architettura di questo componente è stata pensata per avere un'unica implementazione, dove le UI\glo di wallet, issuer e verifier fanno riferimento alle stesse API. Per fortuna si è visto che è possibile avere deploy separati.
+    \item Per quanto riguarda l'issuing di credenziali, si è deciso di utilizzare Open ID Connect, che ha un flusso di issuing di credenziali diverso rispetto a quello di SSI, perché la richiesta parte dal wallet.
+\end{itemize}
+
+
+
+In seguito è stato mostrato il completo flusso di funzionamento delle varie richieste con Postman\glo. Una cosa interessante è il fatto che la configurazione dei container degli issuer viene fatta con un'api apposita, configurata per avere multi tenancy (quindi più issuer, anche se a noi ne serve uno solo), e non a mano, altrimenti non funziona.
+Una criticità che è stata risolta è dovuta al fatto che, quando dal wallet si autorizza l'emissione di una credenziale, e il backend del wallet deve comunicare tramite POST una SIOPv2 response to redirecturi, se ho entrambi gli attori hostati su localhost, su porte diverse, un'istanza non è in grado di comunicare con le altre.
+Questo problema è stato risolto con nginx proxy manager, che fa da intermediario tra gli attori, e associare degli url a localhost modificando il file hosts.

@@ -1,0 +1,43 @@
+\section{Tecnologie Utilizzate}
+Essendo la struttura delle webapp a microservizi  sono state utilizzate le seguenti tecnologie:
+\begin{itemize}
+    \item Docker,
+    \item Docker Container.
+\end{itemize}
+
+Per il deployment dei container è stata gestita la configurazione tramite un file docker compose \textit{docker-compose.yaml}.
+\subsection{Tecnologie Back-end}
+\begin{itemize}
+    \item Node.js + Javascript
+    \item Express: per la creazione di endpoint e creazione di server Http. 
+\end{itemize}
+
+\subsection{Tecnologie Front-end}
+Per la realizzazione della parte grafica degli applicativi web sono state usate le seguenti tecnologie:
+\begin{itemize}
+    \item Vite + React + Javascript,
+    \item Axios per eseguire le chiamate http,
+    \item Material UI.
+\end{itemize}
+
+Vite nello specifico ci è servito per gestire meglio le dipendenze, fare il building della webapplication in maniera migliore e avere più velocità. \\\
+
+Material-UI è una libreria di componenti UI (User Interface) per React fatto da Google. Material-UI è una libreria che viene utilizzata principalmente per realizzare interfacce utente dinamiche e personalizzate.
+Segue il design system “Material Design”, che si occupa di fornire linee guida di design per la realizzazione di applicazioni e siti web.\\
+
+\subsection{Tecnologie Database}
+\begin{itemize}
+    \item DBMS PostegreSQL
+\end{itemize}
+
+
+\subsection{Tecnologie Di Supporto}
+\begin{itemize}
+    \item nginx: Proxy manager per gestire il flusso di dati in arrivo dall'esterno delle nostre componenti e reindirizzarlo all'interno dei nostri componenti docker.
+    \item WaltID: utilizzato per rispettare lo standard OpenIDV4 CI-VP\glo con container messi a disposizione da waltID.
+\end{itemize}
+
+\subsection{Autenticazione e Sicurezza}
+Per la realizzazione dell'autenticazione della webpp originIssuer e originWallet si è optato per un processo di autenticazione tramite username e password. Questi 2 campi sono memorizzati all'interno del database. Per quanto riguarda la password viene memorizzata criptata in particolare solamente l'hash\glo insieme a un salt\glo . Queste componenti insieme allo username servono per procedere con il processo di autenticazione. Tuttavia in caso di furto e dump del database non sarà comunque possibile risalire ai dati di accesso. 
+La password viene criptata tramite un salt generato in maniera casuale. Al momento di login, fornendo username e password, fornisco anche il salt presente nel database; l'hash risultante verrà confrontato con l'hash nel database. Questo confronto tra hash e non password in chiaro ne garantisce la sicurezza.\\
+L'autenticazione e l'acceso riservato da parte del frontend da parte del backend è stato realizzato tramite token JWT\glo. Questi token oltre che permettere l'accesso a risorse riservate a coloro che hanno i permessi, consentono di memorizzare nel token stesso variabili dell'utente. La decriptazione del token viene fatta nel backend tramite secret messa da configurazione. Inoltre sempre da configurazione è stata implementata  la validità temporale del token. Nel caso del Wallet inoltre è stata aggiunta la funzionalità del refresh del token occasionale. Questo permette, nel caso in cui ci fosse un furto del token tramite un attacco man in the middle, di rendere inutilizzabile il token dato che verrebbe rigenerato.  La rigenerazione avviene ogni qualvolta il frontend abbia un interazione con il backend.

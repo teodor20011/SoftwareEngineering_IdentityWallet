@@ -1,0 +1,47 @@
+\section{Qualità di Prodotto}
+Per valutare tale qualità del prodotto software, il gruppo ha deciso di fare riferimento allo standard \textbf{ISO/IEC 9126}, per soddisfare alcuni degli standard di qualità tra quelli proposti
+dal medesimo, ovvero quelli che il gruppo ha ritenuto necessari per il progetto. Lo standard definisce delle caratteristiche generali e delle metriche.
+\subsection{Obiettivi}
+\begin{longtable}{ 
+    >{\centering}M{0.20\textwidth} 
+    >{\centering}M{0.50\textwidth}
+    >{\centering}M{0.17\textwidth} 
+    }
+\rowcolorhead
+\headertitle{Tipologia} &
+\centering \headertitle{Descrizione} &	
+\headertitle{Metriche} 
+\endfirsthead
+\endhead
+
+Funzionalità & Il prodotto deve fornire le funzionalità necessarie per soddisfare i requisiti stabiliti nell'Analisi dei Requisiti & MPD01 \tabularnewline
+Affidabilità & Capacità del prodotto di funzionare, evitando errori& MPD02 \tabularnewline
+Efficienza & Il prodotto deve garantire prestazioni adeguate rispetto alle risorse utilizzate& MPD03 \tabularnewline
+Usabilità & Capacità del prodotto di essere utilizzato correttamente dall'utente& MPD04 \tabularnewline
+Manutenibilità & Capacità del prodotto di poter essere modificato& MPD05, MPD06 \tabularnewline
+Portabilità & Capacità del prodotto di poter essere utilizzato in un altro ambiente di esecuzione& MPD07 \tabularnewline
+\end{longtable}
+\subsection{Metriche}
+
+\begin{longtable}{ 
+    >{\centering}M{0.10\textwidth} 
+    >{\centering}M{0.25\textwidth}
+    >{\centering}M{0.25\textwidth} 
+    >{\centering\arraybackslash}M{0.25\textwidth} 
+    }
+\rowcolorhead
+\headertitle{\textbf{ID}} &
+\centering \headertitle{\textbf{Nome}} &
+\centering \headertitle{\textbf{Valore minimo}} &
+\centering \headertitle{\textbf{Valore ottimale}}
+\endfirsthead
+\endhead
+%\textbf{MPR001} & \centering Comprensibilità delle funzioni & Indica la percentuale di funzionalità comprese da un utente generico & 80\% & 100\% \tabularnewline
+\textbf{MPD01} & \centering Copertura dei Requisiti  & 100\% requisiti obbligatori &  100\% \tabularnewline
+\textbf{MPD02} & \centering Tasso di fallimenti & 0-40\% & 0-10\% \tabularnewline
+\textbf{MPD03} & \centering Tempo di caricamento & 0-12 secondi & 0-6 secondi \tabularnewline
+\textbf{MPD04} & \centering Tempo di apprendimento & 0-30 minuti & 0-10 minuti \tabularnewline
+\textbf{MPD05} & \centering Complessità Ciclomatica & 0-10 & 0-5 \tabularnewline
+\textbf{MPD06} & \centering Densità commenti & 20-30\% & 5-10\% \tabularnewline
+\textbf{MPD07} & \centering Browser supportati & 70\% & 100\% \tabularnewline
+\end{longtable}

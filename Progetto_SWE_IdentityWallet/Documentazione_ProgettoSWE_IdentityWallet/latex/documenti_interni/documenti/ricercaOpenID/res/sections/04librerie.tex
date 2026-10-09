@@ -1,0 +1,29 @@
+\section{Libraries}
+\subsection{Waltid ssikit}
+Libreria con la quale si può realizzare Issuer, Verifier e Wallet.
+Questa libreria è sviluppata da WaltID e ai fini del progetto può interessarci la sua implementazione attraverso REST API.\\
+Nel caso il progetto abbia codice in Java/Kotlin questa libreria offre anche una implementazione tramite dependency di Grandle/Maven, tuttavia 
+dalle specifiche del capitolato, dato che sarà necessario la creazione di una WebApp, questo dettaglio implementativo rende 
+difficile utilizzare ques'ultima soluzione.\\
+Offrono una buona documentazione dal proprio sito insieme anche ad esempi e container Docker direttamente con cui fare il deploy.\\
+Ha una licenza di tipo  Apache License, Version 2.0.
+
+\subsection{SpruceID oidc4vci-rs}
+Questa libreria può essere usata per implementare lo standard OIDC4VCI, quindi solo lato Issuer.\\
+Questa libreria è stata realizzata con Rocket utilizzando il linguaggio di programmazione Rust.
+Oltre al suo dettaglio implementativo offre degli endpoint raggiungibile tramite chiamate HTTP, 
+una volta fatto il deploy si può interaggire infatti attraverso chiamate HTTP.
+Offre una utile demo di un Issuer.
+\\Ha una licenza di tipo  Apache License, Version 2.0.
+
+\subsection{Spheron}
+Questa libreria ha diverse implementazioni.
+Offre la possibilità di implementare Wallet ed Issuer, solo Wallet, Wallet e Verifer, così appare da una breve analisi del sito OpenID.\\
+Per quanto riguarda il primo modo rispetta lo standard OpenID4VCI, ed un dettaglio importante
+è che utilizza il Pre-authorized Code Flow, un metodo di autorizzazione non descritto in questo documento ma abbastanza comprensibile.\\
+Tramite questa libreria si possono implementare tutti i 3 gli attori, sia Wallet, Issuer e Verifer.
+Tramite il suo SSI SDK si può implementare anche OID4VC ed OID4VP.
+Questa libreria è realizzata utilizzando Typescript, e questo è un dettaglio implementativo buono tenendo in considerazione
+che il gruppo dovrà realizzare una WebApp.
+Offre una discreta documentazione insieme anche a strumenti di testing.
+

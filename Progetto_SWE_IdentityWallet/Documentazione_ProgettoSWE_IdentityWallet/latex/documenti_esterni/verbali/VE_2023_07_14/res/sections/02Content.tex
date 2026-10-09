@@ -1,0 +1,28 @@
+\section{Ordine del giorno}
+\begin{enumerate}
+\item File di configurazione idp-config.json e verifier-config.json 
+\item Store di una credenziale
+\item Controllo di flusso
+\end{enumerate}
+
+\subsection{File di configurazione idp-config.json e verifier-config.json} 
+Con questi 2 file di configurazione, ci riferiamo alla parte di verifica delle credenziali. Nello specifico, idp-config.json va ad effettuare la mappatura tra le verifiable credential e i profili interni. Questo passaggio serve agli autenticatori per effettuare il mapping tra i dati. 
+Questo meccanismo risulta fondamentale nella comunicazione tra wallet e verifier. Noi, da wallet, offriamo una verificabile id a un verifier, e lui ci fornisce un access token per accedere ai suoi servizi. Il problema riscontrato da parte nostra è l'ottenimento di tale token. 
+Da parte dell'azienda, ci è stato consigliato, inoltre, di utilizzare dei DID di tipo key in ogni campo dati che necessita di DID sia esso qualsiasi attore del sistema. 
+Discutendo con l'azienda inoltre si è giunti alla conclusione che durante l'issuing di una credenziale, il campo DID del verifier fa rimeriemnto all'issuer in quanto verificatore dei documenti immessi al momento di richiesta credenziale.
+
+\subsection{Store di una credenziale}
+Discutendo con l'azienda si è giunti alla conclusione che lo store della credenziale non va eseguito su un unico repository fornito da SSI Kit. 
+Abbiamo già creato 2 container:
+\begin{itemize}
+  \item walletssikit,
+  \item issuing-Kit.
+\end{itemize}
+
+In questa modo, una volta istanziata una credenziale, possiamo andarla a memorizzare nel repository wallet. 
+Tuttavia, questa procedura risulta ancora poco chiara per il nostro gruppo, quindi intendiamo approfondirla nel breve periodo per comprenderla meglio.
+\subsection{Controllo di flusso}
+Andremo a creare una simulazione del flusso, presente nella documentazione di waltid, tramite una collection di chiamate. 
+Tale flusso verrà discusso insieme all'azienda al fine di chiarire i dubbi che abbiamo riscontrato sulla strutturazione dei container Docker per seguire il flusso indicato in OpenID.
+
+
